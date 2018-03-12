@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AdminComponent } from './admin.component';
+
+const routes: Routes = [
+  {path: '',
+  component: AdminComponent,
+  children: [
+      { path: '', redirectTo: 'admin-dashboard',pathMatch: 'full' },
+      { path: 'admin-dashboard', loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardModule' }   
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class AdminRoutingModule { }

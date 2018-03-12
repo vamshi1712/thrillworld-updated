@@ -4,27 +4,50 @@
           <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
       </a>
       <div class="nested-menu">
-        <a class="list-group-item" (click)="addExpandClass('pages')">
-            <span><i class="fa fa-plus"></i>&nbsp; Events</span>
+        <a class="list-group-item" (click)="addExpandClass('host')">
+            <span><i class="fa fa-plus"></i>&nbsp; Merchants</span>
         </a>
-        <li class="nested" [class.expand]="showMenu === 'pages'">
+        <li class="nested" [class.expand]="showMenu === 'host'">
             <ul class="submenu">
                 <li>
-                    <a href="javascript:void(0)"><span>My Events</span></a>
+                    <a href="javascript:void(0)"><span>Events Added</span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><span>Bookings</span></a>
+                    <a href="javascript:void(0)"><span>Notifications</span></a>
                 </li>
-                
+                <li>
+                    <a href="javascript:void(0)"><span>Manage Merchants</span></a>
+                </li>
             </ul>
         </li>
     </div>
-      
+      <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('customers')">
+            <span><i class="fa fa-plus"></i>&nbsp; Customers</span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === 'customers'">
+            <ul class="submenu">
+                <li>
+                    <a href="javascript:void(0)"><span>Bookings</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><span>Payments</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><span>visited</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><span>Manage Users</span></a>
+                </li>
+            </ul>
+        </li>
+    </div>
+
       <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-          <i class="fa fa-fw fa-table"></i>&nbsp;Payments
+          <i class="fa fa-fw fa-edit"></i>&nbsp;payments
       </a>
       <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-          <i class="fa fa-th-list"></i>&nbsp;Settings
+          <i class="fa fa-th-list"></i>&nbsp;settings
       </a>
       
       

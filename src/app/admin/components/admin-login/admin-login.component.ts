@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Host } from '../../shared/host.model';
+import { Admin } from '../../shared/admin.model';
 import { routerTransition } from '../../../router.animations';
 
 
 @Component({
-  selector: 'app-host-login',
-  templateUrl: './host-login.component.html',
-  styleUrls: ['./host-login.component.scss']
+  selector: 'admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.scss']
 })
-export class HostLoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
   myForm : FormGroup;
-  host:Host;
+  admin:Admin;
 
   constructor( private router : Router) { }
 
@@ -30,8 +30,8 @@ export class HostLoginComponent implements OnInit {
 
 onSubmit(myForm){
   
-    const host = new Host(this.myForm.value.email , this.myForm.value.password);
-    console.log(host);
+    const admin = new Admin(this.myForm.value.email , this.myForm.value.password,true);
+    console.log(admin);
 
     // this.authservice.login(host)
     // .subscribe(data => {
@@ -43,7 +43,7 @@ onSubmit(myForm){
     //         this.router.navigate(['/layout','body']);
     //       }
     //       else{
-    //         this.router.navigate(['/layout','login']);
+    //         this.router.navigate(['/layout','admin-login']);
     //       }
     // });
     this.myForm.reset();
@@ -51,6 +51,7 @@ onSubmit(myForm){
 }
 
 gotosignin(){
-    this.router.navigate(['/host-signup']);
+    this.router.navigate(['/admin-signup']);
    }
+
 }

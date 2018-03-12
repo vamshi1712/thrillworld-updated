@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
@@ -14,6 +13,8 @@ import { AuthGuard } from './shared';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HostModule } from './host/host.module';
 import { AuthService } from './shared/services/user.service';
+import { AdminModule } from './admin/admin.module';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -30,13 +31,8 @@ export function createTranslateLoader(http: HttpClient) {
         HttpClientModule,
         ReactiveFormsModule,
         HostModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient]
-            }
-        }),
+        AdminModule,
+        NgbDropdownModule.forRoot(),
         AppRoutingModule
     ],
     declarations: [AppComponent],

@@ -17,6 +17,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
         TranslateModule,
         NgbDropdownModule.forRoot()
     ],
-    declarations: [LayoutComponent, HeaderComponent, FooterComponent , SidebarComponent]
+    declarations: [LayoutComponent, 
+                HeaderComponent, 
+                FooterComponent, 
+                SidebarComponent
+            ]
 })
 export class LayoutModule {}

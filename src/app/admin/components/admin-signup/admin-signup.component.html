@@ -1,0 +1,47 @@
+
+
+
+<div class="login-pag" >
+  <div class="row justify-content-md-center">
+      <div class="col-md-4">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+          <h1>AdminSignUp</h1>
+          <fieldset class="form-group">
+              <input class="form-control" type="text" placeholder="Full Name" id="fullname" formControlName="fullname">                                 
+              <div class="error err-msg" *ngIf="!registerForm.controls['fullname'].valid && registerForm.controls['fullname'].touched">
+                  Enter Your Full Name ...
+              </div>
+          </fieldset>
+          <fieldset class="form-group">
+              <input class="form-control" type="text" placeholder="Mobile Number" id="phone" formControlName="phone">
+              <div class="error err-msg" *ngIf="!registerForm.controls['phone'].valid && registerForm.controls['phone'].touched">
+                  Enter a Valid phone number ...
+              </div>
+          </fieldset>
+          <fieldset class="form-group">
+              <input class="form-control" type="text" placeholder="Email address" id="email" formControlName="email">
+              <div class="error err-msg" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched" >
+                  Enter a Valid Email-Id ...
+              </div>
+          </fieldset>
+          <fieldset class="form-group">
+              <input class="form-control" type="password" placeholder="Password" id="password" formControlName="password"> 
+              <div class="error err-msg" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">
+                  Enter a Valid Password (must have letters and numbers)
+              </div>
+          </fieldset>
+          <fieldset class="form-group">
+              <input class="form-control" type="password" placeholder="confirmpassword" id="confirmpassword" formControlName="confirmpassword"> 
+              <div class="error err-msg" *ngIf="!registerForm.controls['confirmpassword'].valid && registerForm.controls['confirmpassword'].touched">
+                  Passwords do not match ...
+              </div>
+          </fieldset>
+    
+
+          <div class="form-group">
+              <button class="btn btn-primary btn-lg" type="Submit" label="Click" >SignUp</button>
+          </div>           
+      </form>
+      </div>
+  </div>
+</div>

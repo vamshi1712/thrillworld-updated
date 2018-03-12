@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../../shared/models/user.model';
+import { Admin } from '../../shared/admin.model';
 import { routerTransition } from '../../../router.animations';
 
 
 @Component({
-  selector: 'app-host-signup',
-  templateUrl: './host-signup.component.html',
-  styleUrls: ['./host-signup.component.scss']
+  selector: 'admin-signup',
+  templateUrl: './admin-signup.component.html',
+  styleUrls: ['./admin-signup.component.scss']
 })
-export class HostSignupComponent implements OnInit {
+export class AdminSignupComponent implements OnInit {
 
   registerForm: FormGroup;
-  countries: string[] = ['USA', 'UK', 'Canada'];
   
     constructor(
       private router : Router
@@ -28,24 +27,19 @@ export class HostSignupComponent implements OnInit {
           password: new FormControl(null, [Validators.required,Validators.minLength(10)]),
           confirmpassword: new FormControl(null, [Validators.required,Validators.minLength(10),this.matchOtherValidator('password')]),
           fullname: new FormControl(null,Validators.required),
-          location: new FormControl(null,Validators.required),
-          pincode: new FormControl(null,Validators.required),
           phone: new FormControl(null,Validators.required)
       });
   }
 
 
   onSubmit(registerForm){
-      const user = new User(this.registerForm.value.email ,
-                         this.registerForm.value.password, 
+      const admin = new Admin(this.registerForm.value.email ,
+                         this.registerForm.value.password,
+                         true,
                          this.registerForm.value.fullname,
-                         this.registerForm.value.phone,
-                         this.registerForm.value.location,
-                         this.registerForm.value.pincode,
-                         false,
-                         true
+                         this.registerForm.value.phone
                          );
-      console.log(user);
+      console.log(admin);
       // this.authservice.signup(user)
       // .subscribe(data => {
       //       console.log(data);
@@ -55,7 +49,7 @@ export class HostSignupComponent implements OnInit {
       //         this.router.navigate(['/layout','body']);
       //       }
       //       else{
-      //         this.router.navigate(['/layout','login']);
+      //         this.router.navigate(['/layout','admin-login']);
       //       }
             
       //   },)
