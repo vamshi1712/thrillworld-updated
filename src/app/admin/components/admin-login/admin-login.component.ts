@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Admin } from '../../shared/admin.model';
 import { routerTransition } from '../../../router.animations';
+import { AdminService } from '../../shared/admin.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class AdminLoginComponent implements OnInit {
   myForm : FormGroup;
   admin:Admin;
 
-  constructor( private router : Router) { }
+  constructor( private router : Router, private adminservice : AdminService) { }
 
   ngOnInit(){
     this.myForm = new FormGroup({
@@ -33,19 +34,19 @@ onSubmit(myForm){
     const admin = new Admin(this.myForm.value.email , this.myForm.value.password,true);
     console.log(admin);
 
-    // this.authservice.login(host)
-    // .subscribe(data => {
-    //     console.log(data);
+    this.adminservice.login(admin)
+    .subscribe(data => {
+        console.log(data);
         
-    //     if(data.success == true){
-    //         localStorage.setItem('token', data.token);
-    //         localStorage.setItem('userId', data.userId);
-    //         this.router.navigate(['/layout','body']);
-    //       }
-    //       else{
-    //         this.router.navigate(['/layout','admin-login']);
-    //       }
-    // });
+        // if(data.success == true){
+        //     localStorage.setItem('token', data.token);
+        //     localStorage.setItem('userId', data.userId);
+        //     this.router.navigate(['/layout','body']);
+        //   }
+        //   else{
+        //     this.router.navigate(['/layout','admin-login']);
+        //   }
+    });
     this.myForm.reset();
     
 }

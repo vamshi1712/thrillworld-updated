@@ -1,0 +1,36 @@
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <fieldset class="form-group">
+            <label for=""><h3>Book Your Activity</h3></label>
+            <p-calendar formControlName = "date" placeholder="select date"></p-calendar>                          
+        </fieldset>
+        <fieldset class="form-group">
+            <input class="form-control" 
+                type="number" 
+                placeholder="number of adults"
+                id="adultsnumber" 
+                formControlName="numofadults">
+            <div class="error" *ngIf="!myForm.controls['numofadults'].valid && myForm.controls['numofadults'].touched">
+                <span class="err-msg">Enter number of adults...</span>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <input class="form-control" 
+                type="number" 
+                placeholder="number of children"
+                id="childnumber" 
+                formControlName="numofchilds">
+            <div class="error" *ngIf="!myForm.controls['numofchilds'].valid && myForm.controls['numofchilds'].touched">
+                <span class="err-msg">Enter number of children...</span>
+            </div>
+        </fieldset>
+
+        <div class="form-group ">
+            <button class="btn btn-primary btn-lg" type="Submit" label="Click" >Book Now</button>
+        </div>
+
+
+  </form>
+
+
+

@@ -18,7 +18,7 @@ export class AdminService {
     login(admin){
         const body = JSON.stringify(admin);
         const headers = new Headers({'content-type':'application/json'});
-        return this.http.post(`${this.BaseUrl}`+'/login',body,{headers:headers})
+        return this.http.post('/api/admin-login',body,{headers:headers})
                 .map((response:Response)=>response.json())
                 .catch((error: Response) => {
                     return Observable.throw(error.json());
@@ -29,7 +29,7 @@ export class AdminService {
     signup(admin){
         const body = JSON.stringify(admin);
         const headers = new Headers({'content-type':'application/json'});
-        return this.http.post(`${this.BaseUrl}`+'/signup',body,{headers:headers})
+        return this.http.post('/api/admin',body,{headers:headers})
                     .map((response:Response)=>response.json());
     }
 

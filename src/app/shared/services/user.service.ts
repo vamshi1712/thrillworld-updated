@@ -10,14 +10,14 @@ import { User } from '../models/user.model';
 export class AuthService {
     user : User;
 
-    BaseUrl = 'http://localhost:3000/user';
+    
 
     constructor(public http : Http ){}
 
     login(user){
         const body = JSON.stringify(user);
         const headers = new Headers({'content-type':'application/json'});
-        return this.http.post(`${this.BaseUrl}`+'/login',body,{headers:headers})
+        return this.http.post('/api/login',body,{headers:headers})
                 .map((response:Response)=>response.json());
                 
                 
@@ -26,7 +26,7 @@ export class AuthService {
     signup(user){
         const body = JSON.stringify(user);
         const headers = new Headers({'content-type':'application/json'});
-        return this.http.post(`${this.BaseUrl}`+'/signup',body,{headers:headers})
+        return this.http.post('/api/user',body,{headers:headers})
                     .map((response:Response)=>response.json());
                     
     }

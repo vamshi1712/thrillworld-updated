@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { User } from '../shared/models/user.model';
+import { AuthService } from '../shared/services/user.service';
 
 @Component({
     selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
     countries: string[] = ['USA', 'UK', 'Canada'];
     
       constructor(
-        
+        private authservice : AuthService,
         private router : Router
       ) {}
   
@@ -43,24 +44,24 @@ export class SignupComponent implements OnInit {
                            this.registerForm.value.phone,
                            this.registerForm.value.location,
                            this.registerForm.value.pincode,
-                           this.registerForm.value.isMarried,
+                           true,
                            true,
                            false
                            );
         console.log(user);
-        // this.authservice.signup(user)
-        // .subscribe(data => {
-        //       console.log(data);
-        //       if(data.success == true){
-        //         localStorage.setItem('token', data.token);
-        //         localStorage.setItem('userId', data.userId);
-        //         this.router.navigate(['/layout']);
-        //       }
-        //       else{
-        //         this.router.navigate(['/layout']);
-        //       }
+        this.authservice.signup(user)
+        .subscribe(data => {
+              console.log(data);
+              if(data.success == true){
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('userId', data.userId);
+                this.router.navigate(['/layout']);
+              }
+              else{
+                this.router.navigate(['/login']);
+              }
               
-        //   })
+          })
         this.registerForm.reset();
     }
   

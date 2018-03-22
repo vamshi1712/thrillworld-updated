@@ -8,17 +8,16 @@ import { AdminLoginComponent } from './admin/components/admin-login/admin-login.
 import { AdminSignupComponent } from './admin/components/admin-signup/admin-signup.component';
 
 const routes: Routes = [
-    { path: '', loadChildren: './layout/layout.module#LayoutModule'},
+    { path: '', redirectTo: 'layout',pathMatch: "full"},
     { path: 'layout', loadChildren: './layout/layout.module#LayoutModule'},
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
     { path: 'host', loadChildren: './host/host.module#HostModule' },
     { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
-    { path: 'host-signup' , component: HostSignupComponent},     
-    { path: 'host-login' , component: HostLoginComponent},  
-    { path: 'admin-login' , component: AdminLoginComponent},  
-    { path: 'admin-signup' , component: AdminSignupComponent},  
-    
+    { path: 'host-signup' , component: HostSignupComponent},
+    { path: 'host-login' , component: HostLoginComponent},
+    { path: 'admin-login' , component: AdminLoginComponent},
+    { path: 'admin-signup' , component: AdminSignupComponent}
 ];
 
 @NgModule({

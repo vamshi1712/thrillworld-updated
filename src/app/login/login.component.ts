@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../shared/models/user.model';
 import { routerTransition } from '../router.animations';
+import { AuthService } from '../shared/services/user.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   myForm : FormGroup;
   user:User;
 
-  constructor( private router : Router) { }
+  constructor( private router : Router,
+                private authservice : AuthService ) { }
 
   ngOnInit(){
     this.myForm = new FormGroup({
@@ -34,19 +36,19 @@ onSubmit(myForm){
     const user = new User(this.myForm.value.email , this.myForm.value.password);
     console.log(user);
 
-    // this.authservice.login(user)
-    // .subscribe(data => {
-    //     console.log(data);
+    this.authservice.login(user)
+    .subscribe(data => {
+        console.log(data);
         
-    //     if(data.success == true){
-    //         localStorage.setItem('token', data.token);
-    //         localStorage.setItem('userId', data.userId);
-    //         this.router.navigate(['/layout','body']);
-    //       }
-    //       else{
-    //         this.router.navigate(['/layout','login']);
-    //       }
-    // });
+        if(data.success == true){
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', data.userId);
+            this.router.navigate(['/layout','body']);
+          }
+          else{
+            this.router.navigate(['/layout']);
+          }
+    });
     this.myForm.reset();
     
 }

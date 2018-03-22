@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../../shared/models/user.model';
 import { routerTransition } from '../../../router.animations';
+import { Host } from '../../shared/host.model';
+import { HostService } from '../../shared/host.service';
 
 
 @Component({
@@ -16,7 +18,8 @@ export class HostSignupComponent implements OnInit {
   countries: string[] = ['USA', 'UK', 'Canada'];
   
     constructor(
-      private router : Router
+      private router : Router,
+      private hostservice : HostService
     ) {}
 
     ngOnInit(){
@@ -36,7 +39,7 @@ export class HostSignupComponent implements OnInit {
 
 
   onSubmit(registerForm){
-      const user = new User(this.registerForm.value.email ,
+      const host = new Host(this.registerForm.value.email ,
                          this.registerForm.value.password, 
                          this.registerForm.value.fullname,
                          this.registerForm.value.phone,
@@ -45,20 +48,20 @@ export class HostSignupComponent implements OnInit {
                          false,
                          true
                          );
-      console.log(user);
-      // this.authservice.signup(user)
-      // .subscribe(data => {
-      //       console.log(data);
-      //       if(data.success == true){
-      //         localStorage.setItem('token', data.token);
-      //         localStorage.setItem('userId', data.userId);
-      //         this.router.navigate(['/layout','body']);
-      //       }
-      //       else{
-      //         this.router.navigate(['/layout','login']);
-      //       }
+      console.log(host);
+      this.hostservice.signup(host)
+      .subscribe(data => {
+            console.log(data);
+            if(data.success == true){
+              localStorage.setItem('token', data.token);
+              localStorage.setItem('hostId', data.hostId);
+              this.router.navigate(['/host-dashboard']);
+            }
+            else{
+              this.router.navigate(['/host-login']);
+            }
             
-      //   },)
+        })
       this.registerForm.reset();
   }
 

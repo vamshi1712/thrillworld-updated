@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Admin } from '../../shared/admin.model';
 import { routerTransition } from '../../../router.animations';
+import { AdminService } from '../../shared/admin.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class AdminSignupComponent implements OnInit {
   registerForm: FormGroup;
   
     constructor(
-      private router : Router
+      private router : Router, private adminservice : AdminService
     ) {}
 
     ngOnInit(){
@@ -40,19 +41,19 @@ export class AdminSignupComponent implements OnInit {
                          this.registerForm.value.phone
                          );
       console.log(admin);
-      // this.authservice.signup(user)
-      // .subscribe(data => {
-      //       console.log(data);
-      //       if(data.success == true){
-      //         localStorage.setItem('token', data.token);
-      //         localStorage.setItem('userId', data.userId);
-      //         this.router.navigate(['/layout','body']);
-      //       }
-      //       else{
-      //         this.router.navigate(['/layout','admin-login']);
-      //       }
+      this.adminservice.signup(admin)
+      .subscribe(data => {
+            console.log(data);
+            // if(data.success == true){
+            //   localStorage.setItem('token', data.token);
+            //   localStorage.setItem('userId', data.userId);
+            //   this.router.navigate(['/layout','body']);
+            // }
+            // else{
+            //   this.router.navigate(['/layout','admin-login']);
+            // }
             
-      //   },)
+        });
       this.registerForm.reset();
   }
 

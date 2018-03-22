@@ -9,14 +9,12 @@
         </a>
         <li class="nested" [class.expand]="showMenu === 'host'">
             <ul class="submenu">
-                <li>
-                    <a href="javascript:void(0)"><span>Events Added</span></a>
+                <li routerLinkActive ="active">
+                    <a [routerLink]="['/admin-events-list']"><span>Events List</span></a>
                 </li>
-                <li>
-                    <a href="javascript:void(0)"><span>Notifications</span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><span>Manage Merchants</span></a>
+                
+                <li routerLinkActive ="active">
+                    <a [routerLink]="['/admin-merchants-list']"><span>Merchants Lists</span></a>
                 </li>
             </ul>
         </li>

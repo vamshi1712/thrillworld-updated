@@ -1,0 +1,292 @@
+<p-growl [value]="msgs"></p-growl>
+
+<div class="container">
+  <div class="header">
+    <h1>Add Event</h1>
+  </div>
+  <hr />
+
+
+
+
+
+
+
+  <mat-tab-group>
+        <mat-tab label="Event Details">
+                <div class="form-container row">
+                        <div class="form col-xl-6 text-xs-center">
+                          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                            
+                                <fieldset class="form-group">
+                                    <input class="form-control" 
+                                        type="text" 
+                                        placeholder="Title of the Event"
+                                        id="title" 
+                                        formControlName="title">
+                                    <div class="error" *ngIf="!myForm.controls['title'].valid && myForm.controls['title'].touched">
+                                        <span class="err-msg">Enter a title for your event ...</span>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input class="form-control" type="text" placeholder="Type of Event" id="type" formControlName="type"> 
+                                    <div class="error" *ngIf="!myForm.controls['type'].valid && myForm.controls['type'].touched">
+                                        <span class="err-msg">Enter the type of event ...</span>
+                                    </div>
+                                </fieldset>
+
+                        </form>
+                        
+                        </div>
+
+                        <div class="form col-xl-6 text-xs-center">
+                            <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                                    <!-- <fieldset class="form-group">
+                                            <label >Pics Of Event : </label>
+                                              <p-fileUpload name="demo[]"   (click)="onUpload($event)" 
+                                              multiple="multiple" accept="image/*" multiple="multiple" maxFileSize="1000000" >
+                                              <ng-template pTemplate="content">
+                                                <ul *ngIf="uploadedFiles.length">
+                                                  <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                                                </ul>
+                                              </ng-template>        
+                                            </p-fileUpload>
+                                          </fieldset>   -->
+                                      
+                                          <!-- <div class="form-group">
+                                            <label for="file">Choose File</label>
+                                            <input type="file"
+                                                   id="file"
+                                                   (change)="handleFileInput($event.target.files)">
+                                        </div> -->
+                                        
+                            <add-image></add-image>
+                            <fieldset class="form-group">
+                                <textarea [rows]="5" [cols]="62" pInputTextarea autoResize="autoResize" placeholder="Describe your event" formControlName="description"></textarea>
+                                <div class="error" *ngIf="!myForm.controls['description'].valid && myForm.controls['description'].touched">
+                                    <span class="err-msg">please describe your event</span>
+                                </div>
+                            </fieldset>
+                            
+
+                            
+                            </form>
+                        </div>
+                      </div>          
+        </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-tab label="package details">
+                <h2>package</h2>
+                <div class="package-list">
+
+
+
+                </div>
+
+                <div class="form-container row">
+                        <div class="form col-xl-6 text-xs-center">
+                          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                            
+                                <fieldset class="form-group">
+                                    <input class="form-control" 
+                                        type="text" 
+                                        placeholder="package Name"
+                                        id="pkgname" 
+                                        formControlName="pkgname">
+                                    <div class="error" *ngIf="!myForm.controls['pkgname'].valid && myForm.controls['pkgname'].touched">
+                                        <span class="err-msg">Enter a package name...</span>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="form-group">
+                                    <label for="">type the facilities you offer( press enter after each entry)</label>
+                                        <p-chips formControlName="pkgincludes" ></p-chips>                           
+                                </fieldset>
+
+
+                                
+
+                                <fieldset class="form-group">
+                                        <input class="form-control" 
+                                            type="number" 
+                                            placeholder="package price per adult"
+                                            id="pkgpriceperadult" 
+                                            formControlName="pkgpriceperadult">
+                                        <div class="error" *ngIf="!myForm.controls['pkgpriceperadult'].valid && myForm.controls['pkgpriceperadult'].touched">
+                                            <span class="err-msg">Enter a package price...</span>
+                                        </div>
+                                    </fieldset>
+                                <fieldset class="form-group">
+                                        <input class="form-control" 
+                                            type="number" 
+                                            placeholder="package price per child"
+                                            id="pkgpriceperchild" 
+                                            formControlName="pkgpriceperchild">
+                                        <div class="error" *ngIf="!myForm.controls['pkgpriceperchild'].valid && myForm.controls['pkgpriceperchild'].touched">
+                                            <span class="err-msg">Enter a package price...</span>
+                                        </div>
+                                    </fieldset>
+
+
+                        </form>
+                        
+                        </div>
+ 
+                    </div>
+        </mat-tab>
+
+
+
+
+
+
+
+        <mat-tab label="availability" >
+                <div class="form-container row date">
+                        <div class="form col-xl-6 text-xs-center">
+                            <h1>Availability of event</h1>
+                          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                                <fieldset class="form-group">
+                                        <label for="">tickets available from :</label>
+                                        <p-calendar formControlName = "fromdate"></p-calendar>                          
+                                    </fieldset>
+    
+                                <fieldset class="form-group">
+                                    <label for="">Number of days required for activity :</label>
+                                    <input type="number" formControlName="numofdays" name="number of days" >                        
+                                </fieldset>
+                        </form>
+                        
+                        </div>
+                        <div class="form col-xl-6 text-xs-center">
+                            
+                          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                               
+                             <div class="to">
+                                    <fieldset class="form-group">
+                                            <label for="">up to :</label>
+                                            <p-calendar formControlName = "todate"></p-calendar>                          
+                                        </fieldset>
+                                    </div>      
+                                
+                        </form>
+                        
+                        </div>
+ 
+                    </div>
+                
+        </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-tab label="textarea">
+                <div class="form-container row">
+                        <div class="form text">
+                          <div class="form  col-xl-12 text-xs-center">
+                                <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                                        <fieldset class="form-group">
+                                                <p-editor formControlName="textarea" [style]="{'height':'500px'}"></p-editor>                                    <p>Value: {{text||'empty'}}</p>
+
+                                            </fieldset>
+                                </form>
+                          </div>
+                        
+                        </div>
+                          
+                      </div>
+              </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-tab label="address">
+                <div class="form-container row">
+                        <div class="form col-xl-6 text-xs-center">
+                          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                            
+                              
+                                <fieldset class="form-group">
+                                    <input class="form-control" type="text" placeholder="phone number" id="phone" formControlName="phone"> 
+                                    <div class="error" *ngIf="!myForm.controls['phone'].valid && myForm.controls['phone'].touched">
+                                        <span class="err-msg">Enter phone number ...</span>
+                                    </div>
+                                </fieldset>
+
+                                
+                                <fieldset class="form-group">
+                                    <p-autoComplete [(ngModel)]="city" [suggestions]="filteredCities" (completeMethod)="filterCity($event)" [size]="30"
+                                    placeholder="City" formControlName="location" [minLength]="1"></p-autoComplete>
+                                    <div class="error" *ngIf="!myForm.controls['location'].valid && myForm.controls['location'].touched">
+                                        <span class="err-msg">Enter the location ...</span>
+                                    </div>
+                                </fieldset>
+     
+                                <fieldset class="form-group">
+                                  <input class="form-control" type="text" placeholder="Address" id="address" formControlName="address"> 
+                                  <div class="error" *ngIf="!myForm.controls['address'].valid && myForm.controls['address'].touched">
+                                      <span class="err-msg">please provide address ...</span>
+                                  </div>
+                              </fieldset>
+                    
+                              <fieldset class="form-group">
+                                  <input class="form-control" type="text" placeholder="pincode" id="pincode" formControlName="pincode"> 
+                                  <div class="error" *ngIf="!myForm.controls['pincode'].valid && myForm.controls['pincode'].touched">
+                                      <span class="err-msg">please provide pincode ...</span>
+                                  </div>
+                              </fieldset>
+
+                            <div class="form-group ">
+                                <button class="btn btn-primary btn-lg" type="Submit" label="Click" >Submit</button>
+                            </div>
+
+                        </form>
+                        
+                        </div>
+                          
+                      </div>
+              </mat-tab>
+
+         
+
+
+
+
+            </mat-tab-group>
+
+           
+
+
+      
+    </div>
+

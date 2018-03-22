@@ -1,6 +1,6 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
   <div class="list-group">
-      <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <a  routerLinkActive="active" [routerLink]="['/host-dashboard']" class="list-group-item">
           <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
       </a>
       <div class="nested-menu">
@@ -9,8 +9,11 @@
         </a>
         <li class="nested" [class.expand]="showMenu === 'pages'">
             <ul class="submenu">
-                <li>
-                    <a href="javascript:void(0)"><span>My Events</span></a>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/add-event']"><span>Add Events</span></a>
+                </li>
+                <li routerLinkActive="active" >
+                    <a [routerLink]="['/events-list']"><span>My Events</span></a>
                 </li>
                 <li>
                     <a href="javascript:void(0)"><span>Bookings</span></a>
@@ -21,11 +24,28 @@
     </div>
       
       <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-          <i class="fa fa-fw fa-table"></i>&nbsp;Payments
+          <i class="fa fa-fw fa-table"></i>&nbsp;payments
       </a>
-      <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-          <i class="fa fa-th-list"></i>&nbsp;Settings
-      </a>
+      <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('profile')">
+                <span><i class="fa fa-plus"></i>&nbsp; Account</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'profile'">
+                <ul class="submenu">
+                    <li routerLinkActive="active">
+                        <a [routerLink]="['/host-profile']"><span>My profile</span></a>
+                    </li>
+                    <li routerLinkActive="active" >
+                        <a [routerLink]="['/events-list']"><span>event data</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><span>Bookings</span></a>
+                    </li>
+                    
+                </ul>
+            </li>
+        </div>
+      
       
       
 

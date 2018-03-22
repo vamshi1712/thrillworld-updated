@@ -6,6 +6,15 @@ import {ButtonModule} from 'primeng/button';
 import {GrowlModule} from 'primeng/growl';
 import {CardModule} from 'primeng/card';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {FileUploadModule} from 'primeng/fileupload';
+import {ChartModule} from 'primeng/chart';
+import {TabViewModule} from 'primeng/tabview';
+import {InputTextModule} from 'primeng/inputtext';
+import {ChipsModule} from 'primeng/chips';
+import {CalendarModule} from 'primeng/calendar';
+import {EditorModule} from 'primeng/editor';
 
 @NgModule({
   imports: [
@@ -13,14 +22,32 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     ButtonModule,
     GrowlModule,
     CardModule,
-    RadioButtonModule
+    RadioButtonModule,
+    AutoCompleteModule,
+    InputTextareaModule,
+    FileUploadModule,
+    ChartModule,
+    TabViewModule,
+    InputTextModule,
+    ChipsModule,
+    CalendarModule,
+    EditorModule
 
   ],
   exports:[
     ButtonModule,
     GrowlModule,
     CardModule,
-    RadioButtonModule
+    RadioButtonModule,
+    AutoCompleteModule,
+    InputTextareaModule,
+    FileUploadModule,
+    ChartModule,
+    TabViewModule,
+    InputTextModule,
+    ChipsModule,
+    CalendarModule,
+    EditorModule
   ],
   declarations: []
 })

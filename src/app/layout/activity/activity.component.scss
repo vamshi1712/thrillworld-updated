@@ -1,0 +1,59 @@
+body{
+    color: #fafafa;
+}
+
+.img-fluid
+{
+    max-width: 100%;
+    height: 400px;
+}
+
+.booking-content{
+    width: 25%;
+}
+
+.main-image{
+    img{
+        height: 400px;
+    }
+}
+
+.data{
+    padding-left: 50px;
+    background-color: #fafafa;
+}
+.details{
+    width: 75%;
+}
+
+.row{
+    padding-top: 10px;
+}
+
+.page-content{
+    padding-left: 15px;
+    color: black;
+}
+
+.sticky {
+    position: fixed;
+    top: 100%;
+    width: 275px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: blue;
+  }
+  
+  .sticky a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .sticky a:hover {
+      background-color: #000;
+  }

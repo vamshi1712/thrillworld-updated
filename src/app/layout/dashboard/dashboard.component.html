@@ -1,41 +1,40 @@
 <div [@routerTransition]>
     
-    <div class="row">
-        <div class="col-md-12">
-            <ngb-carousel>
-                <ng-template ngbSlide *ngFor="let slider of sliders">
-                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                    <div class="carousel-caption">
-                        <h3>{{slider.label}}</h3>
-                        <p>{{slider.text}}</p>
-                    </div>
-                </ng-template>
-            </ngb-carousel>
+    <header class="w3-display-container w3-content" style="max-width:1500px;">
+        <img class="w3-img" src="assets/download (2).jpg" alt="The Hotel" style="min-width:1000px" width="1500" height="800">
+        <div class="w3-display-left w3-padding w3-col l6 m8">
+          <div class="w3-container w3-red">
+            <h2><i class="fa fa-plane w3-margin-right"></i>Search cities</h2>
+          </div>
+          <div class="w3-container w3-white w3-padding-16">
+            <form action="/action_page.php" target="_blank">
+              
+              <div class="w3-row-padding" style="margin:8px -16px;">
+                  
+                <div class="w3-half w3-margin-bottom">
+                  <label><i class="fa fa-thumbtack"></i> Location</label>
+                  <input class="w3-input w3-border" type="text"  >
+                </div>
+                <div class="w3-half">
+                  <label><i class="fa fa-child"></i> Activity</label>
+                <input class="w3-input w3-border" type="text"  >
+                </div>
+              </div>
+              <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search </button>
+            </form>
+          </div>
         </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
-        </div>
-        <hr />
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
-        </div>
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
-        </div>
-        
-    </div>
-    <hr />
+      </header>
+ 
+ 
     
 </div>
 
 
 <div class="layout">
 <div class="places">
-    <app-places></app-places>
-    <app-events></app-events>
+        <app-places></app-places>
+        <app-events></app-events>       
 </div>
 
 </div>

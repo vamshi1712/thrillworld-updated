@@ -1,7 +1,7 @@
 export class Host {
     constructor(  
                 public email: string,
-                public password: string, 
+                public password ?: string, 
                 public fullname ?: string,
                 public phone ?: number,
                 public location ?: string,
