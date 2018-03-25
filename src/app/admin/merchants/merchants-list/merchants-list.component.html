@@ -4,25 +4,57 @@
     </div>
     <hr>
 
-    <div class="list">
-            <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>
-                         Merchant Name
-                      </mat-panel-title>
-                      <mat-panel-description>
-                        This is a summary of the content
-                       <div class="nav nav-links">
-                            
-                            <li class="nav nav-items">
-                                <a href="">Remove Merchant</a>
-                            </li>
-                       </div>
-                      </mat-panel-description>
-                    </mat-expansion-panel-header>
-                  
-                    <h1>details of Merchants are displayed here.</h1>
-                  
-                  </mat-expansion-panel>
+    <ul class="w3-ul w3-border ">
+            <li class="w3-theme row">
+                <div class="col-md-2">
+                    <p>Full Name</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Email</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Phone</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Location</p>
+                </div>
+                
+                
+            </li>
+            
+            
+          </ul>
+
+    <div class="list " *ngFor="let h of host">
+           
+            <ul class="w3-ul w3-border w3-hoverable">
+                    <li class="w3-theme row">
+                        <div class="col-md-2">
+                            <p>{{h.fullname}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>{{h.email}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>{{h.phone}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>{{h.location}}</p>
+                        </div>
+                        
+                        <div class="col-md-2">
+                            <a href="">
+                                <p>Remove Merchant</p>
+                            </a>
+                           
+                        </div>
+                    </li>
+                    
+                    
+                  </ul>
+        
            
     </div>
+
+
+    

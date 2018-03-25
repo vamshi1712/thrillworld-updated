@@ -22,6 +22,19 @@ export class AddImageComponent implements OnInit {
 
      uploader:FileUploader = new FileUploader({url:'http://localhost:3000/api/upload'});
 
+
+     uploadedFiles: any[] = [];
+
+     onUpload(event) {
+         this.fileChange(event);
+        for(let file of event.files) {
+            this.uploadedFiles.push(file);
+        }
+    
+        
+    }
+
+
      fileChange(event) {
         let fileList: FileList = event.target.files;
         if(fileList.length > 0) {
@@ -39,7 +52,7 @@ export class AddImageComponent implements OnInit {
                 .subscribe(
                     data => console.log(data),
                     error => console.log(error)
-                )
+                );
         }
     }
 }

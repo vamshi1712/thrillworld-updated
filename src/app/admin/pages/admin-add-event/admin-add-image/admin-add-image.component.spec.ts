@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventsListComponent } from './events-list.component';
+import { AdminAddImageComponent } from './admin-add-image.component';
 
-describe('EventsListComponent', () => {
-  let component: EventsListComponent;
-  let fixture: ComponentFixture<EventsListComponent>;
+describe('AdminAddImageComponent', () => {
+  let component: AdminAddImageComponent;
+  let fixture: ComponentFixture<AdminAddImageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventsListComponent ]
+      declarations: [ AdminAddImageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventsListComponent);
+    fixture = TestBed.createComponent(AdminAddImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

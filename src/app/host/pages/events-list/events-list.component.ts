@@ -9,18 +9,30 @@ import { HostService } from '../../shared/host.service';
 })
 export class EventsListComponent implements OnInit {
 
-  constructor(private hostservice : HostService) { }
+
+  events : Event[]=[]
+
+
+  constructor(private hostservice : HostService  ) { }
 
   ngOnInit() {
     this.Events();
   }
 
+  display: boolean = false;
+  
+      showDialog() {
+          this.display = true;
+      }
+  
 
   Events(){
     this.hostservice.getEvents()
     .subscribe(data => {
       console.log(data);
+      this.events = data;
 
   });
   }
 }
+

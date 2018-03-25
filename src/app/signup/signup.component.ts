@@ -39,12 +39,12 @@ export class SignupComponent implements OnInit {
   
     onSubmit(registerForm){
         const user = new User(this.registerForm.value.email ,
-                           this.registerForm.value.password, 
                            this.registerForm.value.fullname,
                            this.registerForm.value.phone,
+                           true,
+                           this.registerForm.value.password,
                            this.registerForm.value.location,
                            this.registerForm.value.pincode,
-                           true,
                            true,
                            false
                            );

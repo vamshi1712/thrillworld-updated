@@ -14,8 +14,18 @@ import { AdminSignupComponent } from './components/admin-signup/admin-signup.com
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { MerchantsListComponent } from './merchants/merchants-list/merchants-list.component';
-import { AdEventsListComponent } from './merchants/events-list/events-list.component';
 import { AngularMaterialModule } from '../shared/primeng/angular-material.module';
+import { AdminAddEventComponent } from './pages/admin-add-event/admin-add-event.component';
+import { AdminBookingsComponent } from './pages/admin-bookings/admin-bookings.component';
+import { AdminAvailabilityComponent } from './pages/admin-availability/admin-availability.component';
+import { AdminAddImageComponent } from './pages/admin-add-event/admin-add-image/admin-add-image.component';
+import { AdminEventsListComponent } from './pages/admin-events-list/admin-events-list.component';
+import { AdminEventsPhotosComponent } from './pages/admin-events-photos/admin-events-photos.component';
+import { AdminInvoiceComponent } from './pages/admin-invoice/admin-invoice.component';
+import { AdminMessagesComponent } from './pages/admin-messages/admin-messages.component';
+import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component';
+import { AdminReviewsComponent } from './pages/admin-reviews/admin-reviews.component';
+import { AdminSettingsComponent } from './pages/admin-settings/admin-settings.component';
 
 @NgModule({
   imports: [
@@ -31,7 +41,7 @@ import { AngularMaterialModule } from '../shared/primeng/angular-material.module
                 AdminLoginComponent, 
                 AdminSignupComponent, 
                 AdminSidebarComponent, 
-                AdminNavbarComponent, MerchantsListComponent, AdEventsListComponent
+                AdminNavbarComponent, MerchantsListComponent,  AdminAddEventComponent, AdminBookingsComponent, AdminAvailabilityComponent, AdminAddImageComponent, AdminEventsListComponent, AdminEventsPhotosComponent, AdminInvoiceComponent, AdminMessagesComponent, AdminProfileComponent, AdminReviewsComponent, AdminSettingsComponent
               ]
 })
 export class AdminModule { }

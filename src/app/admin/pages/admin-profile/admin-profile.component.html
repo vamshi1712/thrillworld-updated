@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="tabs">
+        <h4>change your account information.</h4>
+        <hr />
+        <div class="col-md-4">
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+                
+                
+                <fieldset class="form-group">
+                    <input class="form-control" type="text" placeholder="Full Name" id="fullname" formControlName="fullname">                                 
+                    <div class="error err-msg" *ngIf="!profileForm.controls['fullname'].valid && profileForm.controls['fullname'].touched">
+                        Enter Your Full Name ...
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input class="form-control" type="text" placeholder="Mobile Number" id="phone" formControlName="phone">
+                    <div class="error err-msg" *ngIf="!profileForm.controls['phone'].valid && profileForm.controls['phone'].touched">
+                        Enter a Valid phone number ...
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input class="form-control" type="text" placeholder="Email address" id="email" formControlName="email">
+                    <div class="error err-msg" *ngIf="!profileForm.controls['email'].valid && profileForm.controls['email'].touched" >
+                        Enter a Valid Email-Id ...
+                    </div>
+                </fieldset>
+  
+  
+  
+    
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg" type="Submit" label="Click" >save</button>
+                </div>           
+            </form>
+          </div>
+  
+      <!-- <mat-tab-group>
+        <mat-tab label="Profile" id="profile">
+          <h1>Profile</h1>
+          
+         <div class="">
+            
+         </div>
+  
+        </mat-tab>
+        <mat-tab label="Edit" id="edit">
+          <h1>Edit</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor reiciendis sint ipsa commodi vero assumenda cumque fugiat perspiciatis eius odio qui tenetur blanditiis nulla repellat hic exercitationem, quisquam quasi sed!</p>
+        </mat-tab>
+        
+      </mat-tab-group> -->
+    </div>
+  </div>

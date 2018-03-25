@@ -26,30 +26,23 @@ export class HostProfileComponent implements OnInit {
           Validators.required,
           Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
       ]),
-      isMarried: new FormControl(null,Validators.required ),
       fullname: new FormControl(null,Validators.required),
-      location: new FormControl(null,Validators.required),
-      pincode: new FormControl(null,Validators.required),
       phone: new FormControl(null,Validators.required)
   });
   }
 
   onSubmit(profileForm){
-    const host = new Host(this.profileForm.value.email,
-      this.profileForm.value.isMarried, 
+    const host = new Host(
+      this.profileForm.value.email,      
       this.profileForm.value.fullname,
       this.profileForm.value.phone,
-      this.profileForm.value.location,
-      this.profileForm.value.pincode,
-      false,
-      true
       );
     console.log(host);
     this.authservice.updateProfile(host)
     .subscribe(data => {
           console.log(data);
   
-      })
+      });
     this.profileForm.reset();
 }
       

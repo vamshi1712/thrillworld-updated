@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Host } from '../../shared/host.model';
 import { routerTransition } from '../../../router.animations';
 import { HostService } from '../../shared/host.service';
+import { HostLogin } from '../../shared/host-login.model';
 
 
 @Component({
@@ -31,23 +32,27 @@ export class HostLoginComponent implements OnInit {
 
 onSubmit(myForm){
   
-    const host = new Host(this.myForm.value.email , this.myForm.value.password);
+    const host = new Host( this.myForm.value.email,null,null,this.myForm.value.password);
     console.log(host);
 
     this.hostservice.login(host)
     .subscribe(data => {
         console.log(data);
+        console.log(data.hostId);
         
         if(data.success == true){
             localStorage.setItem('token', data.token);
-            localStorage.setItem('userId', data.userId);
-            this.router.navigate(['/layout','body']);
+            localStorage.setItem('hostId', data.hostId);
+            
+            this.router.navigate(['/host-dashboard']);
           }
           else{
-            this.router.navigate(['/layout','login']);
+            this.router.navigate(['/host-login']);
           }
     });
     this.myForm.reset();
+
+    
     
 }
 

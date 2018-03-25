@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
 onSubmit(myForm){
   
-    const user = new User(this.myForm.value.email , this.myForm.value.password);
+    const user = new User(this.myForm.value.email,null,null,null , this.myForm.value.password);
     console.log(user);
 
     this.authservice.login(user)
@@ -43,7 +43,7 @@ onSubmit(myForm){
         if(data.success == true){
             localStorage.setItem('token', data.token);
             localStorage.setItem('userId', data.userId);
-            this.router.navigate(['/layout','body']);
+            this.router.navigate(['/layout/dashboard']);
           }
           else{
             this.router.navigate(['/layout']);

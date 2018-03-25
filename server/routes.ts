@@ -19,16 +19,32 @@ export default function setRoutes(app) {
   const adminCtrl = new AdminCtrl();
   const eventCtrl = new EventCtrl();
 
-  router.route('/login').post(userCtrl.login);
-  router.route('/host-login').post(hostCtrl.login);
-  router.route('/admin-login').post(adminCtrl.login);
-
+  //user
   router.route('/user').post(userCtrl.insert);
-  router.route('/host').post(hostCtrl.insert);
-  router.route('/admin').post(adminCtrl.insert);
-  router.route('/addEvent').post(eventCtrl.insert);
-  router.route('/getEvents').post(eventCtrl.getAll);
+  router.route('/login').post(userCtrl.login);
+  router.route('/user-profile/:id').put(userCtrl.updateProfile);
+  router.route('/user-pass/:id').put(userCtrl.updatePass);
 
+  //host
+  router.route('/host-login').post(hostCtrl.login);
+  router.route('/host').post(hostCtrl.insert);
+  router.route('/host/:id').get(hostCtrl.get);
+  router.route('/getMerchants').get(hostCtrl.getAll);
+  router.route('/host-profile/:id').put(hostCtrl.updateProfile);
+  router.route('/host-pass/:id').put(hostCtrl.updatePass);
+
+  //admin
+  router.route('/admin-login').post(adminCtrl.login);
+  router.route('/admin').post(adminCtrl.insert);
+  router.route('/admin/:id').get(adminCtrl.get);
+  router.route('/getMerchants').get(adminCtrl.getAll);
+  router.route('/admin-profile/:id').put(adminCtrl.updateProfile);
+  router.route('/admin-pass/:id').put(adminCtrl.updatePass);
+
+  //events
+  router.route('/addEvent').post(eventCtrl.insert);
+  router.route('/getEvents').get(eventCtrl.getAll);
+  
 
 
 

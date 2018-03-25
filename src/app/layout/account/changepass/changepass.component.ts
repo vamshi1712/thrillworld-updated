@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { User } from '../../../shared/models/user.model';
+import { AuthService } from '../../../shared/services/user.service';
+import { UserPass } from '../../../shared/models/user-pass.model';
 
 @Component({
   selector: 'app-changepass',
@@ -10,16 +13,25 @@ export class ChangepassComponent implements OnInit {
 
   profileForm : FormGroup;
 
-  constructor() { }
+  constructor(private authservice : AuthService) { }
 
   ngOnInit() {
     this.profileForm = new FormGroup({ 
-      currentpassword : new FormControl(null, [Validators.required,Validators.minLength(10)]),
       password: new FormControl(null, [Validators.required,Validators.minLength(10)]),
       confirmpassword: new FormControl(null, [Validators.required,Validators.minLength(10),this.matchOtherValidator('password')])
   });
   }
 
+
+  onSubmit(profileForm){
+    const user = new UserPass(
+      this.profileForm.value.password
+      );
+    this.authservice.updatePass(user)
+                    .subscribe(data=>{
+                      console.log(data);
+                    });
+  }
 
 
 

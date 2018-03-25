@@ -45,21 +45,37 @@ export class HostService {
         .map((response:Response)=>response.json());
     }
 
+
+    getHost(id){
+        return this.http.get('/api/host/:id')
+        .map((response:Response)=>{
+            response.json();
+            console.log(response);
+        });
+    }
+
+    
+
     updateProfile(host){
         const body = JSON.stringify(host);
         const headers = new Headers({'content-type':'application/json'});
-        const token = localStorage.getItem('token');
-        return this.http.patch('/update'+token,body,{headers:headers})
+        // const token = localStorage.getItem('token');
+        const id = localStorage.getItem('hostId');
+        return this.http.put(`/api/host-profile/`+id ,body,{headers:headers})
         .map((response:Response)=>response.json());
 
     }
 
-    // getCities() {
-    //     return this.http.get('showcase/resources/data/countries.json')
-    //                 .toPromise()
-    //                 .then(res => <any[]> res.json().data)
-    //                 .then(data => { return data; });
-    // }
+    updatePass(host){
+        const body = JSON.stringify(host);
+        const headers = new Headers({'content-type':'application/json'});
+        const id = localStorage.getItem('hostId');
+        // const token = localStorage.getItem('token');
+        return this.http.put('/api/host-pass/'+id ,body,{headers:headers})
+        .map((response:Response)=>response.json());
+    }
+
+    
 
     logout(){
         localStorage.clear();

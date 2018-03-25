@@ -22,6 +22,15 @@ import { EventsListComponent } from './pages/events-list/events-list.component';
 import { HostProfileComponent } from './pages/host-profile/host-profile.component';
 import { HostAuthGuard } from './shared/host-auth.guard';
 import { AddImageComponent } from './pages/add-event/add-image/add-image.component';
+import { HostChangepassComponent } from './pages/host-profile/host-changepass/host-changepass.component';
+import { MatDialog } from '@angular/material';
+import { HostBookingComponent } from './pages/booking/booking.component';
+import { HostAvailabilityComponent } from './pages/availability/availability.component';
+import { HostSettingsComponent } from './pages/host-settings/host-settings.component';
+import { HostReviewsComponent } from './pages/host-reviews/host-reviews.component';
+import { HostEventsPhotosComponent } from './pages/host-events-photos/host-events-photos.component';
+import { HostInvoiceComponent } from './pages/host-invoice/host-invoice.component';
+import { HostMessagesComponent } from './pages/host-messages/host-messages.component';
 
 @NgModule({
   imports: [
@@ -35,7 +44,7 @@ import { AddImageComponent } from './pages/add-event/add-image/add-image.compone
     HttpClientModule    
     
   ],
-  providers:[HostService, HostAuthGuard],
+  providers:[HostService, HostAuthGuard , MatDialog],
   declarations: [HostComponent, 
                 HostNavbarComponent, 
                 HostSidebarComponent, 
@@ -44,7 +53,15 @@ import { AddImageComponent } from './pages/add-event/add-image/add-image.compone
                  AddEventComponent,
                  EventsListComponent,
                  HostProfileComponent,
-                 AddImageComponent
+                 AddImageComponent,
+                 HostChangepassComponent,
+                 HostBookingComponent,
+                 HostAvailabilityComponent,
+                 HostSettingsComponent,
+                 HostReviewsComponent,
+                 HostEventsPhotosComponent,
+                 HostInvoiceComponent,
+                 HostMessagesComponent
               ]
 })
 export class HostModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-events',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authservice  : AuthService) { }
+  ngOnInit(){
+    this.Events();
+  }
 
-  ngOnInit() {
+  Events(){
+    this.authservice.getEvents()
+    .subscribe(data => {
+      console.log(data);
+
+  });
   }
 
 }

@@ -6,6 +6,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 
 @NgModule({
@@ -15,15 +18,16 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatIconModule,
     MatTableModule,
     MatChipsModule,
-    MatExpansionModule
-
+    MatExpansionModule,
+    MatDatepickerModule
   ],
   exports:[
     MatTabsModule,
     MatIconModule,
     MatTableModule,
     MatChipsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDatepickerModule
   ],
   declarations: []
 })

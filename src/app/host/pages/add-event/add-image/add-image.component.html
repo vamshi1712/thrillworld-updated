@@ -1,11 +1,18 @@
 
 
-<input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx">
+<!-- <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"> -->
 
 
 
 
-
+<p-fileUpload name="demo[]"  (onUpload)="onUpload($event)" 
+multiple="multiple" accept="image/*" maxFileSize="1000000">
+<ng-template pTemplate="content">
+<ul *ngIf="uploadedFiles.length">
+    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+</ul>
+</ng-template>        
+</p-fileUpload>
 
 
 

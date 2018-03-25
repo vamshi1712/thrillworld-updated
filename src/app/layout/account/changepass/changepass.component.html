@@ -1,10 +1,5 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
-    <fieldset class="form-group">
-        <input class="form-control" type="text" placeholder="Current Password" id="currentpassword" formControlName="currentpassword">
-        <!-- <div class="error err-msg" *ngIf="!profileForm.controls['currentpassword'].valid && profileForm.controls['currentPassword'].touched" >
-            Enter a Valid Password ...
-        </div> -->
-    </fieldset>
+    
     <fieldset class="form-group">
         <input class="form-control" type="password" placeholder="Password" id="password" formControlName="password"> 
         <div class="error err-msg" *ngIf="!profileForm.controls['password'].valid && profileForm.controls['password'].touched">

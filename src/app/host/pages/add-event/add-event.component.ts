@@ -95,14 +95,7 @@ onSubmit(myForm){
     .subscribe(data => {
         console.log(data);
         
-        // if(data.success == true){
-        //     localStorage.setItem('token', data.token);
-        //     localStorage.setItem('userId', data.userId);
-        //     this.router.navigate(['/layout','body']);
-        //   }
-        //   else{
-        //     this.router.navigate(['/layout','login']);
-        //   }
+        
     });
     this.myForm.reset();
     

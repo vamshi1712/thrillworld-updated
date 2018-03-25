@@ -39,10 +39,11 @@ export class HostSignupComponent implements OnInit {
 
 
   onSubmit(registerForm){
-      const host = new Host(this.registerForm.value.email ,
-                         this.registerForm.value.password, 
+      const host = new Host(
+                        this.registerForm.value.email, 
                          this.registerForm.value.fullname,
                          this.registerForm.value.phone,
+                         this.registerForm.value.password, 
                          this.registerForm.value.location,
                          this.registerForm.value.pincode,
                          false,
