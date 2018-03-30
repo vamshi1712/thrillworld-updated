@@ -1,7 +1,17 @@
+.w3-bar{
+    img{
+        height: 36px;
+        width: 115px;
+    }
+}
 
 
+.w3-bar .w3-button {
+    padding: 16px;
+}
 
-$topnav-background-color: #fff;
+
+$topnav-background-color:  seagreen;
 :host {
     .navbar {
         background-color: $topnav-background-color;
@@ -15,27 +25,5 @@ $topnav-background-color: #fff;
             }
         }
     }
-    .messages {
-        width: 300px;
-        .media {
-            border-bottom: 1px solid #ddd;
-            padding: 5px 10px;
-            &:last-child {
-                border-bottom: none;
-            }
-        }
-        .media-body {
-            h5 {
-                font-size: 13px;
-                font-weight: 600;
-            }
-            .small {
-                margin: 0;
-            }
-            .last {
-                font-size: 12px;
-                margin: 0;
-            }
-        }
-    }
+    
 }

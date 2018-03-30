@@ -4,7 +4,7 @@
 
 
 
-
+<!-- 
 <p-fileUpload name="demo[]"  (onUpload)="onUpload($event)" 
 multiple="multiple" accept="image/*" maxFileSize="1000000">
 <ng-template pTemplate="content">
@@ -12,10 +12,80 @@ multiple="multiple" accept="image/*" maxFileSize="1000000">
     <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
 </ul>
 </ng-template>        
-</p-fileUpload>
+</p-fileUpload> -->
+
+<!-- <p-fileUpload name="demo[]" url="http://localhost:3000/api/upload" (onUpload)="onUpload($event)" 
+multiple="multiple" accept="image/*" maxFileSize="1000000">
+<ng-template pTemplate="content">
+<ul *ngIf="uploadedFiles.length">
+    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+</ul>
+</ng-template>        
+</p-fileUpload> -->
+
+
+<!-- <div class="form-group">
+    <label for="file">Choose File</label>
+    <input type="file" name="userPhoto"
+           id="file"
+           (change)="onFileSelected($event)">
+    
+    <button type="button" (click)="onUpload()">Upload</button>
+</div> -->
 
 
 
+<input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />
+
+
+
+
+
+<!-- <div class="form-group">
+    <label for="single">single</label>
+    <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />                                  
+ </div>
+
+ <button type="button" class="btn btn-success btn-s"
+ (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+  <span class="glyphicon glyphicon-upload"></span> Upload all
+</button><br /> -->
+
+
+<!-- 
+<html>
+    <body>
+        <div id="uploadForm"
+            enctype="multipart/form-data"
+            action="http://localhost:3000/api/upload"
+            method="post">
+        <input type="file" name="userPhoto" multiple />
+        <input type="button" value="Upload Image" >
+        <input type='text' id='random' name='random'><br>
+        <span id = "status"></span>
+    </div>
+    </body>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <script>
+    $(document).ready(function() {
+       $('#uploadForm').button(function() {
+          $("#status").empty().text("File is uploading...");
+          $(this).ajaxSubmit({
+              error: function(xhr) {
+            status('Error: ' + xhr.status);
+              },
+              success: function(response) {
+          console.log(response)
+              $("#status").empty().text(response);
+              }
+      });
+      return false;
+      });    
+  });
+  </script>
+  </html> -->
 
 
 

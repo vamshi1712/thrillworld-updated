@@ -59,17 +59,13 @@ export class AddEventComponent implements OnInit {
 // }
 
 
-// onUpload(event) {
-// //   for(let file of event.files) {
-// //       this.uploadedFiles.push(file);
-// //   }
-//   this.msgs = [];
-//   this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
-// }
+
 
 
 
 onSubmit(myForm){
+
+    const id = localStorage.getItem('hostId');
   
     const event = new Events (this.myForm.value.title,
                             this.myForm.value.phone,  
@@ -86,7 +82,8 @@ onSubmit(myForm){
                             this.myForm.value.location,  
                             this.myForm.value.address,
                             this.myForm.value.pincode, 
-                            true
+                            true,
+                            id
                         
                            ); 
     console.log(event);

@@ -1,40 +1,96 @@
 <div [@routerTransition]>
     
-    <header class="w3-display-container w3-content" style="max-width:1500px;">
-        <img class="w3-img" src="assets/download (2).jpg" alt="The Hotel" style="min-width:1000px" width="1500" height="800">
-        <div class="w3-display-left w3-padding w3-col l6 m8">
-          <div class="w3-container w3-red">
-            <h2><i class="fa fa-plane w3-margin-right"></i>Search cities</h2>
-          </div>
-          <div class="w3-container w3-white w3-padding-16">
-            <form action="/action_page.php" target="_blank">
-              
-              <div class="w3-row-padding" style="margin:8px -16px;">
-                  
-                <div class="w3-half w3-margin-bottom">
-                  <label><i class="fa fa-thumbtack"></i> Location</label>
-                  <input class="w3-input w3-border" type="text"  >
+
+     
+
+        <div class="w3-display-container w3-text-white">
+
+            <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+                <a  class="w3-bar-item w3-button w3-large w3-padding-16"
+                onclick="document.getElementById('mySidebar').style.display='none'" >Close ×</a>
+                <a href="#about"  class="w3-bar-item w3-button">Account</a>
+                <a href="#about"  class="w3-bar-item w3-button">Logout</a>
+                
+              </nav>
+            <img src="assets/download (2).jpg" alt="Lights"  class="bg" style="width:100%">
+
+
+            <div class="w3 w3-display-topleft w3-margin ">
+                <div class="w3-hide-small">
+                    <img src="assets/Thrillworld-Logo.png" alt="">
                 </div>
-                <div class="w3-half">
-                  <label><i class="fa fa-child"></i> Activity</label>
-                <input class="w3-input w3-border" type="text"  >
+                <div class="w3-hide-large w3-hide-medium">
+                    <img src="assets/thrillworld favicon.png" alt="">
                 </div>
+            </div>
+
+
+            <div class="w3-padding w3-display-topright">
+                <div class="w3-right w3-dropdown-hover w3-hide-small w3-transparent">
+                    <button class="w3-button w3-red w3-padding w3-margin">
+                            <i class="fa fa-user"></i> Account
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+                      <a href="#" class="w3-bar-item w3-button">Profile</a>
+                      <a href="#" class="w3-bar-item w3-button">Logout</a>
+                    </div>
               </div>
-              <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search </button>
-            </form>
+                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="document.getElementById('mySidebar').style.display='block'">
+                  <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            
+            <div class="w3-display-middle w3-padding-large  w3-wide w3-text-white w3-center">
+                <h1 class="w3 w3-xxxlarge" style="font-size:10vw;" >Travel Like Ever Before</h1>
+                <h5>experience the best memories with us</h5>
+              </div>
+
+
+              <div class=" w3-display-bottommiddle ">
+
+
+
+
+
+              </div>
+            
           </div>
-        </div>
-      </header>
- 
+
+         
  
     
 </div>
 
+<div class="w3-container w3-row w3-center w3-hide-medium w3-hide-small w3-White whytw">
+    <div class="w3-quarter">
+      <span class="w3-xlarge">Why ThrillWorld :</span>
+    </div>
+    
+    <div class="w3-quarter">
+        <i class="fa fa-bookmark fa-2x"></i><br>
+        <span class="w3-xlarge">Easy Booking</span>
+        
+    </div>
+    
+    <div class="w3-quarter">
+        <span class="w3-xlarge">1000+</span>
+        <br>Experiences in India
+    </div>
+    
+    <div class="w3-quarter">
+        <span class="w3-xlarge">500+</span>
+        <br>Happy Clients
+    </div>
+  </div>
+
 
 <div class="layout">
 <div class="places">
-        <app-places></app-places>
-        <app-events></app-events>       
+        <app-places></app-places>     
+</div>
+<div class="events">
+    <app-events></app-events>  
 </div>
 
 </div>

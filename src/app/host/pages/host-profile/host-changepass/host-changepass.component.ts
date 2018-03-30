@@ -23,11 +23,12 @@ export class HostChangepassComponent implements OnInit {
     }
   
     onSubmit(profileForm){
-      const host = new Pass(
+      const pass = new Pass(
         this.profileForm.value.password
         
         );
-      this.hostservice.updatePass(host)
+        console.log(pass);
+      this.hostservice.updatePass(pass)
                       .subscribe(data=>{
                         console.log(data);
                       });

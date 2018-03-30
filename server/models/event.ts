@@ -19,6 +19,7 @@ var schema = new Schema({
     location: {type: String, required: true},
     pincode: {type: String, required: true},
     address: {type: String, required: true},
+    hostid: {type: String, required: true}
 });
 
 

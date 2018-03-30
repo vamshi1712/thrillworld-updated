@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChangepassComponent } from './changepass/changepass.component';
 import { ChangeprofileComponent } from './changeprofile/changeprofile.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { BookingsListComponent } from './bookings-list/bookings-list.component';
 
 
 
@@ -19,8 +21,12 @@ import { FileUploadModule } from 'ng2-file-upload';
     AngularMaterialModule,
     PrimengModule,
     ReactiveFormsModule,
-    FileUploadModule
+    FileUploadModule,
   ],
-  declarations: [AccountComponent, ChangepassComponent, ChangeprofileComponent]
+  declarations: [AccountComponent, 
+                ChangepassComponent, 
+                ChangeprofileComponent, 
+                WishlistComponent, 
+                BookingsListComponent]
 })
 export class AccountModule { }

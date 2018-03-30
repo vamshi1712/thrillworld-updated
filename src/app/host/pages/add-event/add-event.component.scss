@@ -8,17 +8,19 @@
     padding-top: 15px;
 }
 
-.date{
-    height: 500px;
-}
+
 .text{
     height: 500px;
 }
 
 .container{
     padding-top: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-.to{
-    padding-top : 52px;
+.availability{
+    height: 600px;
 }
+
+

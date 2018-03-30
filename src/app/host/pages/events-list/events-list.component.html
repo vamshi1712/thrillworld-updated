@@ -11,7 +11,7 @@
                         <div class="w3-card w3-margin w3-padding-16 w3-hoverable" *ngFor="let event of events"  onclick="document.getElementById('id01').style.display='block'">
                                 
                                 <ul class="w3-ul  w3-white">
-                                  <li class="" (click)="showDialog()">
+                                  <li class="" (click)="getEvent(event._id)">
                                     <img src="assets/gallery/Lonavala/Thrillworld-Lonavala.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                                     <span class="w3-large">{{event.title}}</span><br>
                     

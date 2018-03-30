@@ -7,6 +7,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 
@@ -19,7 +22,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatTableModule,
     MatChipsModule,
     MatExpansionModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatAutocompleteModule,
+    MatFormFieldModule
   ],
   exports:[
     MatTabsModule,
@@ -27,7 +32,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatTableModule,
     MatChipsModule,
     MatExpansionModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatAutocompleteModule,
+    MatFormFieldModule
   ],
   declarations: []
 })

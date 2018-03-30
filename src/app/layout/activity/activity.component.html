@@ -1,18 +1,141 @@
 
 
+<div class="container-fluid main-header">
 
-<div class="w3-display-container main-image" style="margin-bottom:50px">
-        <img src="assets/gallery/p051v6vn.jpg" style="width:100%">
-        <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange w3-hide-small"
-         style="bottom:10%;opacity:0.7;width:70%">
-        <h2><b>4 Good Reasons<br>For travelling with us</b></h2>
-      </div>
-      </div>
+      
+
+    <div class="w3-container w3-padding w3-margin ">
+        <div class="w3-twothird">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="w3-third w3-container w3-padding w3-light-grey w3-border">
+            <p><span class="w3-tag w3-black w3-padding">Flying</span><br>
+                <h3>Event Name</h3><br>
+                <p><span>Adderss of Event</span></p><hr>
+                <span>Rating :</span> 
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <hr>
+                <span><i class="fa fa-map-marker"></i> Event City</span><hr>
+                
+                <div class="includes">
+                        <p><i class="fa fa-check-circle"></i><span>Food</span></p>
+                        <p><i class="fa fa-check-circle"></i><span>Transport</span></p>
+                        <p><i class="fa fa-check-circle"></i><span>Medical</span></p>
+                </div><hr>
+
+                <div class="prices w3-padding ">
+                    <div class="w3-left">
+                            <span>Adults : <p>3000</p></span> 
+                    </div>
+                    <div class="w3-right">
+                            <span>children : <p>2000</p></span>
+                        </div> 
+                </div>
+                
+                
+
+                
+        </div>
+    </div>
+
+    
+
+
+
+</div>
 
 
 
 
-<div class="data" >
+
+
+<div class="container-fluid">
+
+      
+
+    <div class="w3-container w3-padding w3-margin ">
+        <div class="w3-twothird">
+                <div class="details">
+                        <div class="titles">
+                               <h1>Title of Activity</h1>
+                                <p>Caption relating to activity.</p>
+                            </div>
+                            <hr>
+                        <div class="includes">
+                            <h4>inlcudes : </h4>
+                            <mat-chip-list>
+                                    <mat-chip>food</mat-chip>
+                                    <mat-chip>transport</mat-chip>
+                                    <mat-chip>room</mat-chip>
+                                  </mat-chip-list>
+                            
+                        </div>
+                    </div>
+                
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dicta culpa pariatur cum. Possimus maiores perferendis doloremque? Iste tempora similique alias sunt aperiam in vero, nesciunt quisquam numquam nobis quos.</p>
+                    
+                    <hr>
+                    
+                    
+                    <div class="decription">
+                            <h4>Description of Activity :</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
+                            </p>
+                        </div> 
+        </div>
+        <div class="w3-third w3-container w3-padding ">
+           
+                <div class="w3-white w3-margin w3-border">
+                        <div class="w3-container w3-padding w3-red">
+                          <h4>Subscribe</h4>
+                        </div>
+                        <div class="w3-container w3-white">
+                          <booking></booking>
+                          
+                          
+                        </div>
+                      </div>
+                
+        </div>
+    </div>
+
+    
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="data" >
 <div class="container-fluid ">
     <div class="page-content">
     <div class="row">
@@ -46,41 +169,7 @@
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
                                 </p>
                             </div>
-                        <div class="decription">
-                                <h4>Description of Activity :</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
-                                </p>
-                            </div>
-                        <div class="decription">
-                                <h4>Description of Activity :</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
-                                </p>
-                            </div>
-                        <div class="decription">
-                                <h4>Description of Activity :</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
-                                </p>
-                            </div>
-                        <div class="decription">
-                                <h4>Description of Activity :</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
-                                </p>
-                            </div>
-                        <div class="decription">
-                                <h4>Description of Activity :</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
-                                </p>
-                            </div>
+                  
                 
            
            
@@ -101,7 +190,7 @@
 </div>
 
 
-</div>
+</div> -->
 
 
 

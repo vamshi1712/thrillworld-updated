@@ -31,6 +31,7 @@ import { CityComponent } from './city/city.component';
                 HeaderComponent, 
                 FooterComponent, 
                 SidebarComponent, ActivityComponent, BookingComponent, CityComponent
-            ]
+            ],
+    
 })
 export class LayoutModule {}

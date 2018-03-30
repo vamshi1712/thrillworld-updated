@@ -1,184 +1,78 @@
 
-<div class="container">
-  <div class="tabs">
+
+<div class="container ">
+
     <mat-tab-group>
-
-
-
-
-
-
-      <mat-tab label="Profile">
-        
-          <div class="container">
-              <div class="tabs">
-                  <h1>change your account information.</h1>
-                  <hr />
-                  <div class="col-md-4">
-                     <app-changeprofile></app-changeprofile>
-                    </div>
-            
-                
-              </div>
-            </div>
-
-
-
-
-
-      </mat-tab>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <mat-tab label="Cart">
-        <h1>Cart</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor reiciendis sint ipsa commodi vero assumenda cumque fugiat perspiciatis eius odio qui tenetur blanditiis nulla repellat hic exercitationem, quisquam quasi sed!</p>
-      </mat-tab>
-      <mat-tab label="Payment Details">
-        <h1>Payment Details</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, repellat odio? Quasi aspernatur excepturi sit nostrum odit ex animi dicta aliquam eveniet quas. Quam distinctio, mollitia molestiae repellat laudantium in!</p>
-      </mat-tab>
-
-
-
-
-
-
-
-
-      <mat-tab label="Settings">
-          <div class="container">
-              <div class="tabs">
-                  <h1>change your account information.</h1>
-                  <hr />
-                  <div class="col-md-4">
-                      <app-changepass></app-changepass>
-                    </div>
-            
-                
-              </div>
-            </div>
-      </mat-tab>
-
-
-
-
-
-
-
-      <mat-tab label="Avatar">
-          <div class="container">
-              <div class="tabs">
-                 
-                <div class="row">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-8">
-                    <div class="row card">
-                      <div class="col-sm-12">
-                        <h4>Upload</h4>
-                        <div id="fileSelector">
-                          <input type="file" name="fileupload" id="fileUpload"
-                          multiple ng2FileSelect [uploader]="uploader">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row uploadList" *ngFor="let item of uploader.queue">
-                      <div class="col-sm-4">{{item.file.name}}</div>
-                      <div class="col-sm-4">
-                        <div class="progress">
-                          <div class="progress-bar bg-success" 
-                          [ngStyle]="{'width':item.progress+'%'}"></div>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <button type="button" class="btn btn-dark" (click)="item.upload()">Upload</button>
-                        <button type="button" class="btn btn-danger" (click)="item.remove()">Cancel</button>
-                      </div>
-                    </div>
+      <mat-tab label="Profile" class="tab-group" >
+          <div class="w3-half">
+              <div class="w3-white w3-margin w3-border">
+                  <div class="w3-container w3-padding w3-red">
+                    <h4>Edit Profile</h4>
                   </div>
-                  <div class="row">
-                    <button type="button" class="btn btn-primary" (click)="uploader.uploadAll()">Upload all</button>
+                  <div class="w3-container w3-white w3-light-grey">
+                    <div class="w3-container w3-display-container  w3-section" style="height:100%">
+                        <app-changeprofile></app-changeprofile>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+             
+            </div>  
+          <div class="w3-half">
+              <div class="w3-white w3-margin w3-border">
+                  <div class="w3-container w3-padding w3-red">
+                    <h4>Picture</h4>
+                  </div>
+                  <div class="w3-container w3-white w3-light-grey">
+                    <div class="w3-container w3-display-container  w3-section" style="height:100%">
+                      <input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />
+                      <button type="button" (click)="onUpload()">Upload</button>
+                    </div>
+                  </div>
+                </div>
+              <div class="w3-white w3-margin w3-border">
+                  <div class="w3-container w3-padding w3-red">
+                    <h4>Edit Password</h4>
+                  </div>
+                  <div class="w3-container w3-white w3-light-grey">
+                    <div class="w3-container w3-display-container  w3-section" style="height:100%">
+                        <app-changepass></app-changepass>
+                    </div>
+                  </div>
+                </div>
+             
+            </div>  
+
+            
+          </mat-tab>
+
+      <mat-tab label="WishList" class="tab-group">
+        
+        <div class="container">
+          
+          <div class="wishlist">
+            <wishlist></wishlist>
+          </div>
+        </div>
+
       </mat-tab>
 
 
+      <mat-tab label="Bookings" class="tab-group">
+        
+        <div class="container">
+          <div class="bookings">
+            <bookings-list></bookings-list>
+          </div>
+        </div>
+      </mat-tab>
 
+      
 
-
-
-
-
-
-
-
-
-
-
-
+      
     </mat-tab-group>
+
   </div>
-</div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container row">
-  <div class="tabs col-md-3">
-    <nav>
-      <ul class="t-left f-gray">
-        <li class="current">Home</li>
-        <li class="col">Home</li>
-        <li class="col">Home</li>
-      </ul>
-    </nav>
-  </div>
-  <div class="routes ">
-    <div class="router container">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum officiis rem in modi incidunt! Aut veritatis atque reiciendis aspernatur delectus hic distinctio quidem id possimus, labore velit, earum libero amet?
-    </div>
-  </div>
-</div> -->

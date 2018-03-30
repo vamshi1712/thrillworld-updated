@@ -13,6 +13,7 @@ import { AdminMessagesComponent } from './pages/admin-messages/admin-messages.co
 import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component';
 import { AdminReviewsComponent } from './pages/admin-reviews/admin-reviews.component';
 import { AdminSettingsComponent } from './pages/admin-settings/admin-settings.component';
+import { AdminAddCityComponent } from './pages/admin-add-city/admin-add-city.component';
 
 const routes: Routes = [
   {path: '',
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'admin-dashboard', loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardModule' },   
       { path: 'admin-merchants-list' , component: MerchantsListComponent},
       { path: 'admin-add-event' , component: AdminAddEventComponent},
+      { path: 'admin-add-city' , component: AdminAddCityComponent},
       { path: 'admin-availability' , component: AdminAvailabilityComponent},
       { path: 'admin-bookings' , component: AdminBookingsComponent},
       { path: 'admin-events-list' , component: AdminEventsListComponent},

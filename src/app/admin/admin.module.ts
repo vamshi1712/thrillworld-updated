@@ -26,6 +26,7 @@ import { AdminMessagesComponent } from './pages/admin-messages/admin-messages.co
 import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component';
 import { AdminReviewsComponent } from './pages/admin-reviews/admin-reviews.component';
 import { AdminSettingsComponent } from './pages/admin-settings/admin-settings.component';
+import { AdminAddCityComponent } from './pages/admin-add-city/admin-add-city.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { AdminSettingsComponent } from './pages/admin-settings/admin-settings.co
                 AdminLoginComponent, 
                 AdminSignupComponent, 
                 AdminSidebarComponent, 
-                AdminNavbarComponent, MerchantsListComponent,  AdminAddEventComponent, AdminBookingsComponent, AdminAvailabilityComponent, AdminAddImageComponent, AdminEventsListComponent, AdminEventsPhotosComponent, AdminInvoiceComponent, AdminMessagesComponent, AdminProfileComponent, AdminReviewsComponent, AdminSettingsComponent
+                AdminNavbarComponent, MerchantsListComponent,  AdminAddEventComponent, AdminBookingsComponent, AdminAvailabilityComponent, AdminAddImageComponent, AdminEventsListComponent, AdminEventsPhotosComponent, AdminInvoiceComponent, AdminMessagesComponent, AdminProfileComponent, AdminReviewsComponent, AdminSettingsComponent, AdminAddCityComponent
               ]
 })
 export class AdminModule { }

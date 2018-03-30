@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="tabs">
+      <h4>change your account information.</h4>
+      <hr />
+      <div class="col-md-4">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+              
+              
+              <fieldset class="form-group">
+                  <input class="form-control" type="text" placeholder="Enter City Name" id="fullname" formControlName="name">                                 
+                  <div class="error err-msg" *ngIf="!profileForm.controls['name'].valid && profileForm.controls['name'].touched">
+                      Enter Your city name ...
+                  </div>
+              </fieldset>
+              
+
+              <div class="form-group">
+                  <button class="btn btn-primary btn-lg" type="Submit" label="Click" >save</button>
+              </div>           
+          </form>
+        </div>
+
+  </div>
+</div>

@@ -43,10 +43,22 @@ export class AdminService {
         .map((response:Response)=>response.json());
     }
 
+    getCities(){
+        return this.http.get('/api/getCities')
+        .map((response:Response)=>response.json());
+    }
+
     addEvent(event){
         const body = JSON.stringify(event);
         const headers = new Headers({'content-type':'application/json'});
         return this.http.post('/api/addEvent',body,{headers:headers})
+                    .map((response:Response)=>response.json());
+    }
+
+    addcity(city){
+        const body = JSON.stringify(city);
+        const headers = new Headers({'content-type':'application/json'});
+        return this.http.post('/api/addCity',body,{headers:headers})
                     .map((response:Response)=>response.json());
     }
 

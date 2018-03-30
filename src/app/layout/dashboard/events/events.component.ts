@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -8,7 +9,7 @@ import { AuthService } from '../../../shared/services/user.service';
 })
 export class EventsComponent implements OnInit {
 
-  constructor(private authservice  : AuthService) { }
+  constructor(private authservice  : AuthService , private router : Router) { }
   ngOnInit(){
     this.Events();
   }
@@ -19,6 +20,10 @@ export class EventsComponent implements OnInit {
       console.log(data);
 
   });
+  }
+
+  gotoActivity(){
+    this.router.navigate(['/layout','activity'])
   }
 
 }

@@ -1,11 +1,50 @@
 
 
+<div class="w3-top">
+        <div class="w3-bar w3-light-grey w3-card" id="myNavbar">
+          <a href="#home" class="w3-bar-item w3-button w3-wide">
+                <img src="../assets/Thrillworld-Logo.png" alt="">
+          </a>
+          <!-- Right-sided navbar links -->
+          <div class="w3-right w3-dropdown-hover w3-hide-small w3-padding">
+                <button class="w3-button ">
+                        <i class="fa fa-user"></i> Account
+                </button>
+                <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+                  <a href="#" class="w3-bar-item w3-button">Profile</a>
+                  <a href="#" class="w3-bar-item w3-button">Logout</a>
+                </div>
+<!--             
+            <div class="w3-dropdown-hover w3-right">
+                  
+                   
+                  </div> -->
+          </div>
+          
+          <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      
+          <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+          onclick="document.getElementById('mySidebar').style.display='block'">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </div>
+
+
+
+      <!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+        <a  class="w3-bar-item w3-button w3-large w3-padding-16"
+        onclick="document.getElementById('mySidebar').style.display='none'" >Close ×</a>
+        <a href="#about"  class="w3-bar-item w3-button">Account</a>
+        <a href="#about"  class="w3-bar-item w3-button">Logout</a>
+        
+      </nav>
 
 
 
 
-
-<nav class="navbar navbar-expand-lg fixed-top">
+<!-- <nav class="navbar navbar-expand-lg fixed-top">
     <img src="../assets/Thrillworld-Logo.png" alt="">
     <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
         <span class="navbar-toggler-icon"></span>
@@ -89,4 +128,4 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav> -->

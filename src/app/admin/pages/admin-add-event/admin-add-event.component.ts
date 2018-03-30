@@ -3,6 +3,9 @@ import { Events } from '../../../host/shared/event.model';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../../shared/admin.service';
+import {startWith} from 'rxjs/operators/startWith';
+import {Observable} from 'rxjs/Observable';
+import {map} from 'rxjs/operators/map';
 
 @Component({
   selector: 'app-admin-add-event',
@@ -16,7 +19,7 @@ export class AdminAddEventComponent implements OnInit {
   values: string[];
   value: Date;
   textarea: string;
-  uploadedFiles: any[] = [];
+  uploadedFiles: any[] = [];    
   fileToUpload: File = null;
 
   constructor( private router : Router ,
@@ -40,14 +43,49 @@ export class AdminAddEventComponent implements OnInit {
         pincode: new FormControl(null, Validators.required),
         address: new FormControl(null, Validators.required)
     });
+
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(val => this.filter(val))
+      );
 }
 
-// filterCity(event) {
-//   let query = event.query;
-//   this.hostservice.getCities().then(cities => {
-//       this.filteredCity = this.filterCity(query, cities);
-//   });
-// }
+myControl: FormControl = new FormControl();
+options = ['One', 'Two', 'Three'];
+filteredOptions: Observable<string[]>;
+
+
+
+
+  filter(val: string): string[] {
+    return this.options.filter(option => option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  }
+
+
+
+
+filteredCity: any[];
+
+filterCity(event) {
+  let query = event.query;
+  this.adminservice.getCities().subscribe(cities => {
+      console.log(cities);
+      this.filteredCity = this.filterCities(query, cities);
+  });
+}
+
+
+filterCities(query, cities: any[]):any[] {
+    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+    let filtered : any[] = [];
+    for(let i = 0; i < cities.length; i++) {
+        let city = cities[i];
+        if(city.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+            filtered.push(city.name);
+        }
+    }
+    return filtered;
+}
 
 
 // onUpload(event) {

@@ -6,14 +6,32 @@
 
 .city-image{
     img{
-        height: 400px;
+        height: 475px;
     }
 }
 
+.w3-text-white{
+    color: black !important;
+    font-family: fantasy;
+    font-size: 15px;
+}
+
+
+
+.activities{
+    img{
+        height: 300px;
+    }
+}
 
 .header{
     text-align: center;
     padding: 15px;
+}
+
+.head{
+    padding: 20px;
+    margin-bottom: 25px;
 }
 
 .w3-bar-block .w3-bar-item {padding:20px}

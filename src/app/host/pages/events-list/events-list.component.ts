@@ -12,6 +12,10 @@ export class EventsListComponent implements OnInit {
 
   events : Event[]=[]
 
+  event : Event;
+
+  
+
 
   constructor(private hostservice : HostService  ) { }
 
@@ -27,11 +31,24 @@ export class EventsListComponent implements OnInit {
   
 
   Events(){
+
+    
+    const hostid = localStorage.getItem('hostId');
+
     this.hostservice.getEvents()
     .subscribe(data => {
       console.log(data);
-      this.events = data;
 
+      this.events=data;
+
+  });
+  }
+
+  getEvent(id){
+    
+    this.hostservice.getEvent(id)
+    .subscribe(data => {
+      console.log(data);
   });
   }
 }

@@ -66,8 +66,9 @@ export class HostService {
 
     }
 
-    updatePass(host){
-        const body = JSON.stringify(host);
+    updatePass(pass){
+        const body = JSON.stringify(pass);
+        console.log(body);
         const headers = new Headers({'content-type':'application/json'});
         const id = localStorage.getItem('hostId');
         // const token = localStorage.getItem('token');
@@ -75,6 +76,11 @@ export class HostService {
         .map((response:Response)=>response.json());
     }
 
+
+    getEvent(id){
+        return this.http.get('/api/event/'+id)
+        .map((response:Response)=>response.json());
+    }
     
 
     logout(){

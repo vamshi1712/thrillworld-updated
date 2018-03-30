@@ -37,17 +37,7 @@ export default class HostCtrl extends BaseCtrl {
   }
 
   updatePass = (req, res) => {
-     var host = new Host({
-      email: req.body.password
-  });
-  bcrypt.genSalt(10, function(err, salt) {
-    if (err) { return console.error(err); }
-    bcrypt.hash(host.password, salt, function(error, hash) {
-      if (error) { return console.error(err); }
-      host.password = hash;
-    }); 
-  });
-  this.model.findOneAndUpdate({ _id: req.params.id }, host, (err) => {
+  this.model.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
     if (err) { return console.error(err); }
     res.sendStatus(200);
   });

@@ -30,6 +30,20 @@ schema.pre('save', function(next) {
   });
 });
 
+
+schema.pre('findOneAndUpdate', function(next) {
+  const host = this;
+  
+  bcrypt.genSalt(10, function(err, salt) {
+    if (err) { return next(err); }
+    bcrypt.hash(host.password, salt, function(error, hash) {
+      if (error) { return next(error); }
+      host.password = hash;
+      next();
+    });
+  });
+});
+
 schema.methods.comparePassword = function(candidatePassword, callback) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     if (err) { return callback(err); }
