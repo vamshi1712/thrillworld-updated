@@ -12,7 +12,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'dashboard'  },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
             { path: 'account', loadChildren: './account/account.module#AccountModule'},
-            {path : 'activity', component : ActivityComponent },
+            {path : 'activity/:id', component : ActivityComponent },
             {path : 'city', component : CityComponent }
         ]
     }

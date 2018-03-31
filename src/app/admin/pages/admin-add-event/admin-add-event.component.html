@@ -41,26 +41,13 @@
 
                         <div class="form col-xl-6 text-xs-center">
                             <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-                                    <!-- <fieldset class="form-group">
-                                            <label >Pics Of Event : </label>
-                                              <p-fileUpload name="demo[]"   (click)="onUpload($event)" 
-                                              multiple="multiple" accept="image/*" multiple="multiple" maxFileSize="1000000" >
-                                              <ng-template pTemplate="content">
-                                                <ul *ngIf="uploadedFiles.length">
-                                                  <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                                                </ul>
-                                              </ng-template>        
-                                            </p-fileUpload>
-                                          </fieldset>   -->
-                                      
-                                          <!-- <div class="form-group">
-                                            <label for="file">Choose File</label>
-                                            <input type="file"
-                                                   id="file"
-                                                   (change)="handleFileInput($event.target.files)">
-                                        </div> -->
+                                  
                                         
-                            <admin-add-image></admin-add-image>
+                            
+                            <fieldset class="form-group">
+                                <input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />
+                                                                
+                            </fieldset>
                             <fieldset class="form-group">
                                 <textarea [rows]="5" [cols]="62" pInputTextarea autoResize="autoResize" placeholder="Describe your event" formControlName="description"></textarea>
                                 <div class="error" *ngIf="!myForm.controls['description'].valid && myForm.controls['description'].touched">

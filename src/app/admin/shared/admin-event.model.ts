@@ -1,11 +1,14 @@
-export class Events {
+export class AdminEvents {
     constructor(
         public title: string,
         public phone: number,
         public type: string,
         public description?: string,
-        public packages ?: string,
         public images ?: string,
+        public pkgname?: string,
+        public pkgincludes?: string,
+        public pkgpriceperadult?: string,
+        public pkgpriceperchild?: string,
         public fromdate?: Date,
         public todate?: Date,
         public numofdays?: number,
@@ -18,7 +21,7 @@ export class Events {
     ) { }
 }
 
-export class Package {
+export class AdminPackage {
     constructor(
         public pkgname?: string,
         public pkgincludes?: string,

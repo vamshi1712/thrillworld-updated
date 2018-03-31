@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Booking } from '../../../shared/models/booking.model';
+import { AuthService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'booking',
@@ -25,7 +26,7 @@ export class BookingComponent implements OnInit {
       invalidDates: Array<Date>
 
 
-  constructor() { }
+  constructor(private authservice : AuthService) { }
 
   ngOnInit() {
 
@@ -73,29 +74,22 @@ export class BookingComponent implements OnInit {
 
 onSubmit(myForm){
 
+  const userid = localStorage.getItem('userId');
+  
 
   const booking = new Booking (this.myForm.value.date,
     this.myForm.value.numofadults,  
     this.myForm.value.numofchilds,
-    
-     
+    userid
    ); 
   
     console.log(booking);
 
-    // this.authservice.login(host)
-    // .subscribe(data => {
-    //     console.log(data);
-        
-    //     if(data.success == true){
-    //         localStorage.setItem('token', data.token);
-    //         localStorage.setItem('userId', data.userId);
-    //         this.router.navigate(['/layout','body']);
-    //       }
-    //       else{
-    //         this.router.navigate(['/layout','login']);
-    //       }
-    // });
+    this.authservice.makeBooking(booking)
+        .subscribe(data=>{
+          console.log(data);
+        });
+
     this.myForm.reset();
     
 }

@@ -14,6 +14,7 @@ import { HostSettingsComponent } from './pages/host-settings/host-settings.compo
 import { HostReviewsComponent } from './pages/host-reviews/host-reviews.component';
 import { HostEventsPhotosComponent } from './pages/host-events-photos/host-events-photos.component';
 import { HostInvoiceComponent } from './pages/host-invoice/host-invoice.component';
+import { HostMessagesComponent } from './pages/host-messages/host-messages.component';
 
 const routes: Routes = [
   {path: '',
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'host-pass' , component: HostChangepassComponent },
       { path: 'host-bookings' , component: HostBookingComponent },
       { path: 'host-availability' , component: HostAvailabilityComponent },
+      { path: 'host-messages' , component: HostMessagesComponent },
       { path: 'host-settings' , component: HostSettingsComponent },
       { path: 'host-reviews' , component: HostReviewsComponent },
       { path: 'host-events-photos' , component: HostEventsPhotosComponent },

@@ -8,6 +8,7 @@ var schema = new Schema({
     phone: {type: String, required: true},
     type: {type: String, required: true},
     description: {type: String, required: true},
+    images: {type: String, required: false},
     pkgname: {type: String, required: true},
     pkgincludes: {type: String, required: true},
     pkgpriceperadult: {type: Number, required: true},
@@ -19,7 +20,7 @@ var schema = new Schema({
     location: {type: String, required: true},
     pincode: {type: String, required: true},
     address: {type: String, required: true},
-    hostid: {type: String, required: true}
+    id: {type: String, required: false},
 });
 
 

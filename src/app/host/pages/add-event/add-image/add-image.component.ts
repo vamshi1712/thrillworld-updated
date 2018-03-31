@@ -31,6 +31,7 @@ export class AddImageComponent implements OnInit {
     selectedFile : any;
     filesToUpload : any;
     uploadedFiles: any[] = [];
+    images : any=[];
 
 
 
@@ -58,7 +59,11 @@ export class AddImageComponent implements OnInit {
             
             this.http.post('http://localhost:3000/api/upload',formData)
                     .subscribe(res=>{
+                        let resul : any = res;
+                        let result:any=JSON.parse(resul._body);
                         console.log(res);
+                        this.images.push(result.file);
+                        console.log(this.images);
                     });
 
         

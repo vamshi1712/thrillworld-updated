@@ -55,6 +55,7 @@ export class HostProfileComponent implements OnInit {
 selectedFile : any;
 filesToUpload : any;
 uploadedFiles: any[] = [];
+propic : any;
 
 
 
@@ -76,7 +77,7 @@ onUpload(){
         
         this.http.post('http://localhost:3000/api/uploadHostAvatar',formData)
                 .subscribe(res=>{
-                    console.log(res);
+                    this.propic = res;
                 });
 
     

@@ -11,6 +11,7 @@ import AdminCtrl from './controllers/admin';
 import EventCtrl from './controllers/event';
 import CityCtrl from './controllers/city';
 import PassCtrl from './controllers/pass';
+import BookingCtrl from './controllers/booking';
 
 
 export default function setRoutes(app) {
@@ -24,6 +25,7 @@ export default function setRoutes(app) {
   const eventCtrl = new EventCtrl();
   const cityCtrl = new CityCtrl();
   const passCtrl = new PassCtrl();
+  const bookingCtrl = new BookingCtrl();
 
 
   //user
@@ -56,6 +58,9 @@ export default function setRoutes(app) {
   //city
   router.route('/addCity').post(cityCtrl.insert);
   router.route('/getCities').get(cityCtrl.getAll);
+
+  //bookings
+  router.route('/booking').post(bookingCtrl.insert);
 
 
 

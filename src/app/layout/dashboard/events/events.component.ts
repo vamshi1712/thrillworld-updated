@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
+  events: any;
 
   constructor(private authservice  : AuthService , private router : Router) { }
   ngOnInit(){
@@ -18,12 +19,13 @@ export class EventsComponent implements OnInit {
     this.authservice.getEvents()
     .subscribe(data => {
       console.log(data);
+      this.events=data;
 
   });
   }
 
-  gotoActivity(){
-    this.router.navigate(['/layout','activity'])
+  gotoActivity(id){
+    this.router.navigate(['/layout/activity',id])
   }
 
 }

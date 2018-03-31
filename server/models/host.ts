@@ -12,6 +12,7 @@ var schema = new Schema({
     isUser: {type: Boolean, required: true},
     isHost: {type: Boolean, required: true},
     email: {type: String, required: true, unique: true},
+    
 });
 
 schema.plugin(mongooseUniqueValidator);

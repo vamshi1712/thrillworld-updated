@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Events } from '../../../host/shared/event.model';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../../shared/admin.service';
 import {startWith} from 'rxjs/operators/startWith';
 import {Observable} from 'rxjs/Observable';
 import {map} from 'rxjs/operators/map';
+import { AdminEvents } from '../../shared/admin-event.model';
+import { Http, Headers, Response } from "@angular/http";
 
 @Component({
   selector: 'app-admin-add-event',
@@ -13,16 +14,16 @@ import {map} from 'rxjs/operators/map';
   styleUrls: ['./admin-add-event.component.scss']
 })
 export class AdminAddEventComponent implements OnInit {
+    imgs: any;
+    pkg: any;
 
   myForm : FormGroup;
-  event : Events; 
+  event : AdminEvents; 
   values: string[];
   value: Date;
   textarea: string;
-  uploadedFiles: any[] = [];    
-  fileToUpload: File = null;
 
-  constructor( private router : Router ,
+  constructor( private router : Router , private http : Http,
                 private adminservice : AdminService) { }
 
   ngOnInit(){
@@ -99,12 +100,21 @@ filterCities(query, cities: any[]):any[] {
 
 
 onSubmit(myForm){
-  
-    const event = new Events (this.myForm.value.title,
+
+    // const pkg = new Package(
+    //     this.myForm.value.pkgname,
+    //     this.myForm.value.pkgincludes,
+    //     this.myForm.value.pkgpriceperadult,
+    //     this.myForm.value.pkgpriceperchild,
+    // );
+    const id = localStorage.getItem('hostId');
+
+    const event = new AdminEvents (this.myForm.value.title,
                             this.myForm.value.phone,  
                             this.myForm.value.type,  
                             this.myForm.value.description, 
-                            this.myForm.value.pkgname, 
+                            this.imgs, 
+                            this.myForm.value.pkgname,
                             this.myForm.value.pkgincludes,
                             this.myForm.value.pkgpriceperadult,
                             this.myForm.value.pkgpriceperchild,
@@ -115,9 +125,11 @@ onSubmit(myForm){
                             this.myForm.value.location,  
                             this.myForm.value.address,
                             this.myForm.value.pincode, 
-                            true
-                        
+                            true,
+                            id
                            ); 
+
+                          
     console.log(event);
 
     this.adminservice.addEvent(event)
@@ -135,6 +147,45 @@ onSubmit(myForm){
     });
     this.myForm.reset();
     
+}
+
+
+
+selectedFile : any;
+filesToUpload : any;
+uploadedFiles: any[] = [];
+
+
+
+
+onFileSelected(event){
+    console.log(event);
+    
+              for(let i=0 ; i<event.target.files.length;i++){
+                this.selectedFile = event.srcElement.files[i];
+                this.onUpload();
+              }
+        
+    
+}
+
+onUpload(){
+    const formData:FormData = new FormData();
+    
+
+        formData.append('image', this.selectedFile, this.selectedFile.name );
+        this.uploadedFiles = this.selectedFile;
+        
+        this.http.post('http://localhost:3000/api/upload',formData)
+                .map((response:Response)=>response.json())
+                .subscribe(data=>{
+                console.log(data);
+                this.imgs=data.file;
+                
+                });
+
+
+                
 }
 
 

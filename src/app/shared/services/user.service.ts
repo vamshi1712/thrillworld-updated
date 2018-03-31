@@ -52,6 +52,19 @@ export class AuthService {
         return this.http.get('/api/getEvents')
         .map((response:Response)=>response.json());
     }
+
+    getEvent(id){
+        return this.http.get('/api/event/'+id)
+        .map((response:Response)=>response.json());
+    }
+
+
+    makeBooking(booking){
+        const body = JSON.stringify(booking);
+        const headers = new Headers({'content-type':'application/json'});
+        return this.http.post('/api/booking',body,{headers:headers})
+                    .map((response:Response)=>response.json());
+    }
     
     logout(){
         localStorage.clear();
@@ -60,5 +73,7 @@ export class AuthService {
     isLoggedIn(){
         return localStorage.getItem('token') !== null;
     }
+
+
 
 }

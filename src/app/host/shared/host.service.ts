@@ -76,6 +76,11 @@ export class HostService {
         .map((response:Response)=>response.json());
     }
 
+    getCities(){
+        return this.http.get('/api/getCities')
+        .map((response:Response)=>response.json());
+    }
+
 
     getEvent(id){
         return this.http.get('/api/event/'+id)

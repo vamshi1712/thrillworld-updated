@@ -8,22 +8,25 @@
 
 
   <div class="container-fluid">
-      <div class="activities">
+      <div class="activities" >
           <div class="w3-col l4">
               <!-- About Card -->
-              <div class="w3-card w3-margin w3-margin-top w3-text-white w3-display-container" (click)="gotoActivity()">
-              <img src="assets/gallery/pexels-photo-672358.jpeg" style="width:100%">
+              <div class="w3-card w3-margin w3-margin-top w3-text-white w3-display-container" *ngFor="let event of events" >
+                    <a [routerLink]="['/layout/activity', event._id]">
+                        <img src="assets/gallery/pexels-photo-672358.jpeg" style="width:100%" >
+                    </a>
+              
                <div id="displayonhover" class=" w3-hide-medium w3-hide-small">
                   
                   <div class="w3-display-topleft w3-display-hover  w3-margin">
   
-                      <p><span class="w3-tag w3-white w3-padding w3-round">Treking</span>
+                      <p><span class="w3-tag w3-white w3-padding w3-round">{{event.type}}</span>
   
                     
                   </div>
                   <div class="w3-display-bottomleft w3-display-hover w3-text-white w3-margin">
   
-                      <h3><span>Event Name</span></h3>
+                      <h3><span>{{event.title}}</span></h3>
                     
                   </div>
                   <div class="w3-display-bottomright w3-display-hover  w3-margin">
