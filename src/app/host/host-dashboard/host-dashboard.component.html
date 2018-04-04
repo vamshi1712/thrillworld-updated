@@ -1,5 +1,244 @@
+<div class="w3-container">
+  <div class="heading">
+    <div class="w3-left w3-padding-left">
+      <h3>Activities</h3>
+    </div>
+    <div class="w3-right w3-padding filter" >
+        <!-- <button class="openBtn" (click)="closeSearch()"><i class="fa fa-search"></i></button> -->
+      <span (click)="visibleSidebar1 = true"><i class="fa fa-filter"></i> Filters</span>
+    </div>
+  </div>
+  <div class="w3-container">
 
-<body>
+    <hr>
+
+    <!-- <div id="myOverlay" class="overlay">
+      <span class="closebtn" (click)="openSearch()" title="Close Overlay">×</span>
+      <div class="overlay-content">
+        <form >
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div> -->
+
+
+    <div class="w3-panel w3-border w3-border-violet w3-leftbar w3-padding">
+        <div class="head row">
+            <div class="col-md-5">
+                <h3>Daily Report</h3>
+            </div>
+            <div class=" col-md-5 num">
+              <p>no od days ago</p>
+            </div>
+        </div><br>
+
+        <!-- <div class="gap">
+        </div> -->
+        <div class="main">
+            <h3>Event Name </h3>
+        </div>
+        <div class="main row">
+          <div class="col-md-4 w3-container">
+            <span class="w3-text-blue-gray">Arraivals</span> : Mar 15
+          </div>
+          <div class="col-md-4 w3-container">
+              <span class="w3-text-blue-gray">Departures</span> : 0
+          </div>
+        </div>
+        <div class="main row">
+          <div class="col-md-4 w3-container">
+              <span class="w3-text-blue-gray">Sold Out Room types</span> : 0
+          </div>
+          
+        </div>
+       
+      </div>
+
+
+
+
+
+
+
+    <div class="w3-panel w3-border w3-border-green w3-leftbar w3-padding">
+        <div class="head row">
+            <div class="col-md-5">
+                <h3>New Booking</h3>
+            </div>
+            <div class=" col-md-5 num">
+              <p>2 days ago</p>
+            </div>
+        </div><br>
+
+        <!-- <div class="gap">
+        </div> -->
+        <div class="main">
+            <h3>Event Name </h3>
+        </div>
+        <div class="main row">
+          <div class="col-md-4 w3-container">
+            <span class="w3-text-blue-gray">Arraivals</span> : Thur Mar-15
+          </div>
+          <div class="col-md-4 w3-container">
+              <span class="w3-text-blue-gray">Nights</span> : 0
+          </div>
+        </div>
+        <div class="main row">
+          <div class="col-md-4 w3-container">
+              <span class="w3-text-blue-gray">Booking number</span> : 21345
+          </div>
+          <div class="col-md-4 w3-container">
+              <span class="w3-text-blue-gray">Price</span> : 4500
+          </div>
+          
+        </div>
+       
+      </div>
+
+
+
+    <div class="w3-panel w3-border w3-border-yellow w3-leftbar w3-padding">
+        <div class="head row">
+            <div class="col-md-5">
+                <h3>Modification</h3>
+            </div>
+            <div class=" col-md-5 num">
+              <p>1 Month ago</p>
+            </div>
+        </div><br>
+
+        <!-- <div class="gap">
+        </div> -->
+        <div class="main">
+            <h3>Event Name </h3>
+        </div>
+        
+       
+      </div>
+
+      <div class="w3-panel w3-border w3-border-violet w3-leftbar w3-padding">
+          <div class="head row">
+              <div class="col-md-5">
+                  <h3>cancellation</h3>
+              </div>
+              <div class=" col-md-5 num">
+                <p>2 days ago</p>
+              </div>
+          </div><br>
+  
+          <!-- <div class="gap">
+          </div> -->
+          <div class="main">
+              <h3>Event Name </h3>
+          </div>
+          <div class="main row">
+            <div class="col-md-4 w3-container">
+              <span class="w3-text-blue-gray">Guest Name</span> : Ram Nithin
+            </div>
+            <div class="col-md-4 w3-container">
+                <span class="w3-text-blue-gray">Arrivals</span> : thur 15-mar
+            </div>
+          </div>
+          <div class="main row">
+            <div class="col-md-4 w3-container">
+                <span class="w3-text-blue-gray">Booking number</span> : 21345
+            </div>
+            <div class="col-md-4 w3-container">
+                <span class="w3-text-blue-gray">Price</span> : 4500
+            </div>
+            
+          </div>
+         
+        </div>
+    
+
+
+
+
+  </div>
+
+  <p-sidebar [(visible)]="visibleSidebar1" position="right"  [baseZIndex]="10000">
+    <div class="top">
+
+    </div>
+    <h1>Filter By</h1>
+    <label class="container">New Booking
+      <input type="checkbox" checked="checked">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Sold Out Rooms
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">New Reviews
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Daily Report
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Cancellations
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Opportunities
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">LongTerm Availability
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Almost Sold Out
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    
+</p-sidebar>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
   <div class="timeline">
     <div class="container right">
       <div class="content">
@@ -24,4 +263,4 @@
     
   </div>
   
-</body>
+</body> -->

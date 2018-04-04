@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../shared/services/user.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Booking } from '../../shared/models/booking.model';
+import { Relation } from '../../shared/models/relation';
 
 @Component({
   selector: 'app-activity',
@@ -12,16 +13,17 @@ import { Booking } from '../../shared/models/booking.model';
 export class ActivityComponent implements OnInit {
     event: any;
   public sliders: Array<any> = [];
-  date5: Date;
+  
   dates: Date[];
   
       rangeDates: Date[];
-  
+      date : Date ;
       minDate: Date;
   
       maxDate: Date;
   
       es: any;
+      tr:any;
   
       invalidDates: Array<Date>
   
@@ -54,12 +56,13 @@ export class ActivityComponent implements OnInit {
    getEvent(id){
        this.authservice.getEvent(id)
             .subscribe(data=>{
+                console.log(data);
                 this.event=data;
             });
    }
 
   ngOnInit() {
-
+    
     const id = this._route.snapshot.params.id;
     this.getEvent(id);
 
@@ -73,9 +76,11 @@ export class ActivityComponent implements OnInit {
         today: 'Hoy',
         clear: 'Borrar'
     }
-  
-    
-  
+
+    this.tr = {
+        firstDayOfWeek : 1
+    }
+
     let today = new Date();
     let month = today.getMonth();
     let year = today.getFullYear();
@@ -89,7 +94,7 @@ export class ActivityComponent implements OnInit {
     this.maxDate = new Date();
     this.maxDate.setMonth(nextMonth);
     this.maxDate.setFullYear(nextYear);
-  
+
     let invalidDate = new Date();
     invalidDate.setDate(today.getDate() - 1);
     this.invalidDates = [today,invalidDate];
@@ -110,13 +115,13 @@ export class ActivityComponent implements OnInit {
 
   
   
-  
   onSubmit(myForm){
-  
+    console.log(this.date);
     const userid = localStorage.getItem('userId');
     const id = this._route.snapshot.params.id;
     const eventid = id;
-  
+    
+
     const booking = new Booking (this.myForm.value.date,
       this.myForm.value.numofadults,  
       this.myForm.value.numofchilds,
@@ -129,18 +134,33 @@ export class ActivityComponent implements OnInit {
       this.authservice.makeBooking(booking)
           .subscribe(data=>{
             console.log(data);
-            // this.realtion(data._id);
+            this.relation(data._id);
           });
   
       this.myForm.reset();
       
   }
 
-//   relation(id){
+  relation(id){
 
-//     const relation = new Relation
+    const eventid = this._route.snapshot.params.id;
+    const userid = localStorage.getItem('userId');
+    const hostid = this.event.hostid;
 
-//   }
+    const relation = new Relation(
+        userid,
+        id,
+        eventid,
+        hostid
+    );
+    console.log(relation);
+
+    this.authservice.addRelation(relation)
+        .subscribe(data=>{
+            console.log(data);
+        });
+
+  }
 
 
 }

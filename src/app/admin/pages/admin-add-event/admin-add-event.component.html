@@ -83,50 +83,87 @@
 
                 <div class="form-container row">
                         <div class="form col-xl-6 text-xs-center">
-                          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-                            
-                                <fieldset class="form-group">
-                                    <input class="form-control" 
-                                        type="text" 
-                                        placeholder="package Name"
-                                        id="pkgname" 
-                                        formControlName="pkgname">
-                                    <div class="error" *ngIf="!myForm.controls['pkgname'].valid && myForm.controls['pkgname'].touched">
-                                        <span class="err-msg">Enter a package name...</span>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="form-group">
-                                    <label for="">type the facilities you offer( press enter after each entry)</label>
-                                        <p-chips formControlName="pkgincludes" ></p-chips>                           
-                                </fieldset>
-
-
+                            <form [formGroup]="pkgForm" >
                                 
-
-                                <fieldset class="form-group">
-                                        <input class="form-control" 
-                                            type="number" 
-                                            placeholder="package price per adult"
-                                            id="pkgpriceperadult" 
-                                            formControlName="pkgpriceperadult">
-                                        <div class="error" *ngIf="!myForm.controls['pkgpriceperadult'].valid && myForm.controls['pkgpriceperadult'].touched">
-                                            <span class="err-msg">Enter a package price...</span>
-                                        </div>
-                                    </fieldset>
-                                <fieldset class="form-group">
-                                        <input class="form-control" 
-                                            type="number" 
-                                            placeholder="package price per child"
-                                            id="pkgpriceperchild" 
-                                            formControlName="pkgpriceperchild">
-                                        <div class="error" *ngIf="!myForm.controls['pkgpriceperchild'].valid && myForm.controls['pkgpriceperchild'].touched">
-                                            <span class="err-msg">Enter a package price...</span>
-                                        </div>
-                                    </fieldset>
-
-
-                        </form>
+                                                       <div class="w3-half">
+                                                        <fieldset class="form-group">
+                                                            <input class="form-control" type="text" placeholder="package Name" id="pkgname" formControlName="pkgname">
+                                                            <div class="error" *ngIf="!pkgForm.controls['pkgname'].valid && pkgForm.controls['pkgname'].touched">
+                                                                <span class="err-msg">Enter a package name...</span>
+                                                            </div>
+                                                        </fieldset>
+                                
+                                                        <fieldset class="form-group">
+                                                            <label for="">type the facilities you offer( press enter after each entry)</label>
+                                                            <p-chips formControlName="pkgincludes"></p-chips>
+                                                        </fieldset>
+                                
+                                
+                                
+                                
+                                                        <fieldset class="form-group">
+                                                            <input class="form-control" type="number" placeholder="package price per adult" id="pkgpriceperadult" formControlName="pkgpriceperadult">
+                                                            <div class="error" *ngIf="!pkgForm.controls['pkgpriceperadult'].valid && pkgForm.controls['pkgpriceperadult'].touched">
+                                                                <span class="err-msg">Enter a package price...</span>
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset class="form-group">
+                                                            <input class="form-control" type="number" placeholder="package price per child" id="pkgpriceperchild" formControlName="pkgpriceperchild">
+                                                            <div class="error" *ngIf="!pkgForm.controls['pkgpriceperchild'].valid && pkgForm.controls['pkgpriceperchild'].touched">
+                                                                <span class="err-msg">Enter a package price...</span>
+                                                            </div>
+                                                        </fieldset>
+                                
+                                                        <div class="form-group ">
+                                                            <button class="btn btn-primary btn-lg" type="button" label="Click" (click)="onAdd(pkgForm)">Add Package</button>
+                                                        </div>
+                                                       </div>
+                                
+                                                        <div class="w3-half ">
+                                                                <div class="w3-container">
+                                                                        <div class="w3-card w3-panel w3-padding w3-margin">
+                                                                                <div class="top">
+                                                                                    <div class="name w3-left">
+                                                                                        <h3>Name</h3>    
+                                                                                    </div>  
+                                                                                    <div class="close w3-right">
+                                                                                        <span>X</span>    
+                                                                                    </div>  
+                                                                                </div>   
+                                                                                <div class="w3-container w3-margin w3-padding">
+                                                                                    <div class="w3-quarter">
+                                                                                        <p>type</p><br>
+                                                                                        <p>flying</p>   
+                                                                                    </div>    
+                                                                                    <div class="w3-quarter">
+                                                                                        <h5>adults</h5><br>
+                                                                                        <span>0</span>    
+                                                                                    </div>    
+                                                                                    <div class="w3-quarter">
+                                                                                        <h5>childs</h5><br>
+                                                                                        <span>2</span>    
+                                                                                    </div>    
+                                                                                </div>    
+                                                                            
+                                                                            </div>
+                                                                </div>
+                                                                    
+                                                                
+                                                                
+                                                                <!-- <button (click)="myFunction()">
+                                                                        Try it<i  class="fa fa-angle-down"></i>
+                                                                    </button>
+                                                                <div id="myDIV">
+                                                                    <h1>3546879</h1>
+                                                                        <div class="packages" *ngFor="let p of packages">
+                                                                                {{p.pkgname}}
+                                                                            </div>
+                                                                </div> -->
+                                                            
+                                                        </div>
+                                
+                                
+                                                    </form>
                         
                         </div>
  

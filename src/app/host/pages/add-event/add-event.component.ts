@@ -117,14 +117,15 @@ export class AddEventComponent implements OnInit {
             this.myForm.value.address,
             this.myForm.value.pincode,
             true,
-            id
+            id,
+            false
         );
         console.log(event);
 
-        // this.hostservice.addEvent(event)
-        //     .subscribe(data => {
-        //         console.log(data);
-        //     });
+        this.hostservice.addEvent(event)
+            .subscribe(data => {
+                console.log(data);
+            });
         this.myForm.reset();
 
     }

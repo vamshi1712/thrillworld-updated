@@ -5,7 +5,7 @@ import { AdminService } from '../../shared/admin.service';
 import {startWith} from 'rxjs/operators/startWith';
 import {Observable} from 'rxjs/Observable';
 import {map} from 'rxjs/operators/map';
-import { AdminEvents } from '../../shared/admin-event.model';
+import { AdminEvents, AdminPackage } from '../../shared/admin-event.model';
 import { Http, Headers, Response } from "@angular/http";
 
 @Component({
@@ -17,7 +17,10 @@ export class AdminAddEventComponent implements OnInit {
     imgs: any;
     pkg: any;
 
-  myForm : FormGroup;
+    packages: any=[];
+    
+     myForm: FormGroup;
+     pkgForm: FormGroup;
   event : AdminEvents; 
   values: string[];
   value: Date;
@@ -97,6 +100,17 @@ filterCities(query, cities: any[]):any[] {
 //   this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
 // }
 
+onAdd(pkgForm){
+    const pkg = new AdminPackage(
+        this.pkgForm.value.pkgname,
+        this.pkgForm.value.pkgincludes,
+        this.pkgForm.value.pkgpriceperadult,
+        this.pkgForm.value.pkgpriceperchild,
+    );
+    this.packages.push(pkg);
+    
+    this.pkgForm.reset();
+}
 
 
 onSubmit(myForm){
@@ -114,10 +128,7 @@ onSubmit(myForm){
                             this.myForm.value.type,  
                             this.myForm.value.description, 
                             this.imgs, 
-                            this.myForm.value.pkgname,
-                            this.myForm.value.pkgincludes,
-                            this.myForm.value.pkgpriceperadult,
-                            this.myForm.value.pkgpriceperchild,
+                            this.packages,
                             this.myForm.value.fromdate,  
                             this.myForm.value.todate,  
                             this.myForm.value.numofdays,  
@@ -126,7 +137,8 @@ onSubmit(myForm){
                             this.myForm.value.address,
                             this.myForm.value.pincode, 
                             true,
-                            id
+                            id,
+                            true
                            ); 
 
                           

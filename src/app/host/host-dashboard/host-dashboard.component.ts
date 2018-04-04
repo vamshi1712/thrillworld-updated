@@ -7,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostDashboardComponent implements OnInit {
 
- 
+  visibleSidebar1
 
 
 
     ngOnInit() {}
+
+    openSearch(){
+      document.getElementById('myOverlay').style.display = 'none'
+    }
+    closeSearch(){
+      document.getElementById('myOverlay').style.display = 'block'
+    }
 
 
 }

@@ -17,6 +17,8 @@ import {CalendarModule} from 'primeng/calendar';
 import {EditorModule} from 'primeng/editor';
 import {DialogModule} from 'primeng/dialog';
 import {CheckboxModule} from 'primeng/checkbox';
+import {SidebarModule} from 'primeng/sidebar';
+import {AccordionModule} from 'primeng/accordion';
 
 
 
@@ -37,7 +39,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     CalendarModule,
     EditorModule,
     DialogModule,
-    CheckboxModule
+    CheckboxModule,
+    SidebarModule,
+    AccordionModule
 
   ],
   exports:[
@@ -55,7 +59,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     CalendarModule,
     EditorModule,
     DialogModule,
-    CheckboxModule
+    CheckboxModule,
+    SidebarModule,
+    AccordionModule
   ],
   declarations: []
 })

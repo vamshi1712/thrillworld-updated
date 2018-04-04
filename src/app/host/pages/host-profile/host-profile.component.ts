@@ -72,10 +72,10 @@ onUpload(){
     const formData:FormData = new FormData();
     
 
-        formData.append('HostAvatar', this.selectedFile, this.selectedFile.name );
+        formData.append('image', this.selectedFile, this.selectedFile.name );
         this.uploadedFiles = this.selectedFile;
         
-        this.http.post('http://localhost:3000/api/uploadHostAvatar',formData)
+        this.http.post('http://localhost:3000/api/upload',formData)
                 .subscribe(res=>{
                     this.propic = res;
                 });

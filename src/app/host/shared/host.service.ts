@@ -45,9 +45,14 @@ export class HostService {
         .map((response:Response)=>response.json());
     }
 
+    getEventsofHost(id){
+        return this.http.get('/api/event/'+id)
+        .map((response:Response)=>response.json());  
+    }
+
 
     getHost(id){
-        return this.http.get('/api/host/:id')
+        return this.http.get('/api/host/'+id)
         .map((response:Response)=>{
             response.json();
             console.log(response);
@@ -81,9 +86,23 @@ export class HostService {
         .map((response:Response)=>response.json());
     }
 
+    
+
+    getBookings(hostid){
+        return this.http.get('/api/getbookings/'+hostid)
+        .map((response:Response)=>response.json());
+    }
+
 
     getEvent(id){
+        
         return this.http.get('/api/event/'+id)
+        .map((response:Response)=>response.json());
+    }
+
+    todayBookings(booking){
+        const body = JSON.stringify(booking);
+        return this.http.get('/api/todaybooking',body)
         .map((response:Response)=>response.json());
     }
     

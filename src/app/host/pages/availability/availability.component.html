@@ -1,26 +1,51 @@
 <div class="container">
         <div class="header">
-          <h1>Bookings</h1>
+          <h1>Availability</h1>
         </div>
         <hr />
     
     <div class="w3-third w3-center">
-        <p-calendar  [inline]="true"></p-calendar>
+        <p-calendar [(ngModel)]="date" (ngModelChange)="dateChange()"  [inline]="true"></p-calendar>
     </div>
     
     <div class="w3-twothird">
-       
-            <div class="w3-container w3-card w3-white w3-round w3-padding w3-margin"><br>
-              <h4>Event Name</h4><br> 
-               <div class="w3-half w3-center">
-                   booked: <br>
-                   <span>0</span>
-               </div>
-               <div class="w3-half w3-center">
-                   Available: <br>
-                   <span><button>-</button></span> <span>10</span> <span><button>+</button></span>
-               </div>
+
+            <div class="w3-panel w3-border w3-border-black  w3-padding">
+                    <div class="head row">
+                        <div class="col-md-4">
+                            <h3>Event Name</h3>
+                        </div>
+                    </div><br>
+                    <div class="main">
+                        <h3>Accomodation</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="w3-text-gray">Booked</span> : 0
+                        </div>
+                        
+                        <div class="col-md-7">
+                            <span class="w3-text-gray">Available</span> : 
+                            <span><button class="button btn btn-info ">-</button></span> <span>
+                                10   
+                            </span> <span><button class="button btn btn-info">+</button></span>                            
+                        </div>
+                    </div>
+
+                    <div class="row w3-margin">
+                        <div class="col-md-3">
+                            <span class="w3-text-gray">INR </span> : 3500
+                        </div>
+                        
+                        <div class="col-md-7">
+                            <span class="w3-text-gray">Minimum Lenght of stay</span> : 
+                            <input id="disabled-input" type="text" size="30" pInputText [disabled]="disabled" />
+                            
+                            <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Enable" ></button>                          
+                        </div>
+                    </div>
             </div>
+            
  
     </div>
 </div>    

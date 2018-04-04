@@ -9,12 +9,21 @@ import { HostService } from '../../shared/host.service';
 })
 export class EventsListComponent implements OnInit {
 
-
+  visibleSidebar1;
+  visibleSidebar2;
+  visibleSidebar3;
+  visibleSidebar4;
   events : Event[]=[]
 
   event : Event;
 
-  
+  openNav() {
+    document.getElementById("myNav").style.width = "75%";
+}
+
+ closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
 
 
   constructor(private hostservice : HostService  ) { }
@@ -31,17 +40,13 @@ export class EventsListComponent implements OnInit {
   
 
   Events(){
-
-    
     const hostid = localStorage.getItem('hostId');
+    
+        this.hostservice.getEventsofHost(hostid)
+            .subscribe(data=>{
+              this.events = data;
+            });
 
-    this.hostservice.getEvents()
-    .subscribe(data => {
-      console.log(data);
-
-      this.events=data;
-
-  });
   }
 
   getEvent(id){

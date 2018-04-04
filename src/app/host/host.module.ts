@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { AngularMaterialModule } from '../shared/primeng/angular-material.module';
 import { HostRoutingModule } from './host-routing.module';
@@ -38,10 +38,11 @@ import { HostMessagesComponent } from './pages/host-messages/host-messages.compo
     HostRoutingModule,
     NgbDropdownModule.forRoot(),
     ReactiveFormsModule,
+    FormsModule,
     PrimengModule,
     AngularMaterialModule,
     HttpModule,
-    HttpClientModule    
+    HttpClientModule
     
   ],
   providers:[HostService, HostAuthGuard , MatDialog],

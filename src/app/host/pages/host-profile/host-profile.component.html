@@ -7,10 +7,13 @@
               
 
             <div class="w3-half">
-                <fieldset class="form-group" >
+                <fieldset class="form-group"  >
                     <input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />
                     <button type="button" (click)="onUpload()">Upload</button>
-                    <img [src]="propic" alt="" style="width:100%">
+                    <div >
+                            <img [src]="propic" alt="" style="width:100%" >
+                    </div>
+                    
                 </fieldset>
             </div>
         

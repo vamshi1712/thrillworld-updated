@@ -14,7 +14,8 @@ export class Events {
         public address?: string,
         public pincode?: number,
         public isHost?: boolean,
-        public hostid?: string
+        public hostid?: string,
+        public isPermittedByAdmin ?: boolean
     ) { }
 }
 
@@ -27,3 +28,9 @@ export class Package {
 
     ) { }
 }
+
+export class TodayBookings {
+    constructor( 
+      public date ?: string
+    ){}
+  }

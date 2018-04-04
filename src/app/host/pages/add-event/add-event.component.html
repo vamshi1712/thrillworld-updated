@@ -46,6 +46,10 @@
                     </fieldset>
 
 
+                    <div class="images" *ngFor="let i of images">
+                        <img [src]="i" alt="" class="img">
+                    </div>
+
 
 
 
@@ -114,29 +118,24 @@
 
                         <div class="w3-half ">
                                 <div class="w3-container">
-                                        <div class="w3-card w3-panel w3-padding w3-margin">
-                                                <div class="top">
-                                                    <div class="name w3-left">
-                                                        <h3>Name</h3>    
-                                                    </div>  
-                                                    <div class="close w3-right">
-                                                        <span>X</span>    
-                                                    </div>  
-                                                </div>   
-                                                <div class="w3-container w3-margin w3-padding">
-                                                    <div class="w3-quarter">
-                                                        <p>type</p><br>
-                                                        <p>flying</p>   
-                                                    </div>    
-                                                    <div class="w3-quarter">
-                                                        <h5>adults</h5><br>
-                                                        <span>0</span>    
-                                                    </div>    
-                                                    <div class="w3-quarter">
-                                                        <h5>childs</h5><br>
-                                                        <span>2</span>    
-                                                    </div>    
-                                                </div>    
+                                        <div class="w3-card w3-panel w3-padding w3-margin" *ngFor="let p of packages">
+                                                <div class="main">
+                                                        <h3>{{p.pkgname}}</h3>
+                                                    </div>
+                                                    <div class="main row">
+                                                      <div class="col-md-4 w3-container">
+                                                        <span class="w3-text-blue-gray">Per Adult</span> :{{p.pkgpriceperadult}}
+                                                      </div>
+                                                      <div class="col-md-4 w3-container">
+                                                          <span class="w3-text-blue-gray">Per Child</span> : {{p.pkgpriceperchild}}
+                                                      </div>
+                                                    </div>
+                                                    <div class="main row">
+                                                      <div class=" w3-container">
+                                                          <span class="w3-text-blue-gray">includes</span> : {{p.pkgincludes}}
+                                                      </div>
+                                                      
+                                                    </div>   
                                             
                                             </div>
                                 </div>

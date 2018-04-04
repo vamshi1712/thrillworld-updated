@@ -12,7 +12,7 @@ import { AngularMaterialModule } from '../shared/primeng/angular-material.module
 import { ActivityComponent } from './activity/activity.component';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { BookingComponent } from './activity/booking/booking.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CityComponent } from './city/city.component';
 
 
@@ -25,7 +25,8 @@ import { CityComponent } from './city/city.component';
         NgbDropdownModule.forRoot(),
         AngularMaterialModule,
         PrimengModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     declarations: [LayoutComponent, 
                 HeaderComponent, 

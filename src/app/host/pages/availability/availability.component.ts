@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HostService } from '../../shared/host.service';
 
 @Component({
   selector: 'host-availability',
@@ -7,11 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostAvailabilityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private hostservice : HostService) { }
 
   ngOnInit() {
+
+    const hostid = localStorage.getItem('hostId');
+
+    this.hostservice.getEventsofHost(hostid)
+        .subscribe(data=>{
+          console.log(data);
+        });
   }
   panelOpenState: boolean = false;
   value: Date;
+
+  text: string;
+  
+      disabled: boolean = true;
+  
+      toggleDisabled() {
+          this.disabled = !this.disabled;
+      }
 
 }

@@ -106,9 +106,12 @@
                         <div class="w3-container w3-white">
                                 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
                                         <fieldset class="form-group">
-                                            <label for=""><h3>Book Your Activity</h3></label>
-                                            <p-calendar formControlName="date" tabindex="0" [disabledDates]="invalidDates" [disabledDays]="[0,6]" readonlyInput="true"></p-calendar> {{date5|date}}
+                                            <!-- <a href="https://www.instamojo.com/@bodkedd/lbb51fe527baa4418b02329008fa87fcc/" rel="im-checkout" data-behaviour="remote" data-style="light" data-text="Checkout With Instamojo"></a>
+                                            <script src="https://js.instamojo.com/v1/button.js"></script> -->
+                                            
                                         </fieldset>
+                                        <p-calendar formControlName="date"  dateFormat="dd/mm/yy" ></p-calendar> 
+                                            {{date | date}}
                                         <fieldset class="form-group">
                                             <input class="form-control" 
                                                 type="number" 

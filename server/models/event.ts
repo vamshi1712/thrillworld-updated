@@ -3,16 +3,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+import Package from './package';
+
 var schema = new Schema({
     title: {type: String, required: true},
     phone: {type: String, required: true},
     type: {type: String, required: true},
     description: {type: String, required: true},
     images: {type: String, required: false},
-    pkgname: {type: String, required: true},
-    pkgincludes: {type: String, required: true},
-    pkgpriceperadult: {type: Number, required: true},
-    pkgpriceperchild: {type: Number, required: true},
+    packages : {type: mongoose.Schema.Types, ref: 'Package'},
     fromdate: {type: String, required: true},
     todate: {type: String, required: true},
     numofdays: {type:Number, required: true},
@@ -20,7 +19,8 @@ var schema = new Schema({
     location: {type: String, required: true},
     pincode: {type: String, required: true},
     address: {type: String, required: true},
-    id: {type: String, required: false},
+    hostid: {type: String, required: true},
+    isPermittedByAdmin : {type: Boolean, required: true},
 });
 
 

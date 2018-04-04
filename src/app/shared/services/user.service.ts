@@ -32,6 +32,7 @@ export class AuthService {
     }
 
     updateProfile(user){
+        
         const body = JSON.stringify(user);
         const headers = new Headers({'content-type':'application/json'});
         // const token = localStorage.getItem('token');
@@ -48,8 +49,15 @@ export class AuthService {
         .map((response:Response)=>response.json());
     }
 
+    addRelation(relation){
+        const body = JSON.stringify(relation);
+        const headers = new Headers({'content-type':'application/json'});
+        return this.http.post('/api/relation',body,{headers:headers})
+                    .map((response:Response)=>response.json());
+    }
+
     getEvents(){
-        return this.http.get('/api/getEvents')
+        return this.http.get('/api/getPermittedEvents')
         .map((response:Response)=>response.json());
     }
 
@@ -60,7 +68,7 @@ export class AuthService {
 
 
     makeBooking(booking){
-        const body = JSON.stringify(booking);
+        const body = JSON.stringify(booking);;
         const headers = new Headers({'content-type':'application/json'});
         return this.http.post('/api/booking',body,{headers:headers})
                     .map((response:Response)=>response.json());

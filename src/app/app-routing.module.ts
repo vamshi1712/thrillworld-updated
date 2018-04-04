@@ -21,8 +21,11 @@ const routes: Routes = [
     { path: 'admin-signup' , component: AdminSignupComponent}
 ];
 
+
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
+
+
 export class AppRoutingModule {}

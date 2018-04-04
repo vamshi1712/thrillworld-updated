@@ -1,6 +1,6 @@
 export class Booking {
     constructor(  
-                public date ?: Date,
+                public date ?: string,
                 public numofadults ?: number,
                 public numofchilds ?: number,
                 public userid ?: string,

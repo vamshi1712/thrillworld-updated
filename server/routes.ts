@@ -12,6 +12,7 @@ import EventCtrl from './controllers/event';
 import CityCtrl from './controllers/city';
 import PassCtrl from './controllers/pass';
 import BookingCtrl from './controllers/booking';
+import RelationCtrl from './controllers/relation';
 
 
 export default function setRoutes(app) {
@@ -26,6 +27,7 @@ export default function setRoutes(app) {
   const cityCtrl = new CityCtrl();
   const passCtrl = new PassCtrl();
   const bookingCtrl = new BookingCtrl();
+  const relationCtrl = new RelationCtrl();
 
 
   //user
@@ -53,7 +55,14 @@ export default function setRoutes(app) {
   //events
   router.route('/addEvent').post(eventCtrl.insert);
   router.route('/getEvents').get(eventCtrl.getAll);
-  router.route('/event/:id').get(eventCtrl.get);
+  router.route('/getEvents/:id').get(eventCtrl.getAll);
+  router.route('/event/:id').get(eventCtrl.getEventsofHost);
+  router.route('/getPermittedEvents').get(eventCtrl.getPermitted);
+  router.route('/permitevent/:id').put(eventCtrl.permitevent);
+  router.route('/getnonpermittedEvents').get(eventCtrl.getNonPermitted);
+  router.route('/getbyLocation/:location').get(eventCtrl.getLocation);
+  router.route('/getbyType/:type').get(eventCtrl.getType);
+  router.route('/getbyTitle/:title').get(eventCtrl.getTitle);
   
   //city
   router.route('/addCity').post(cityCtrl.insert);
@@ -61,6 +70,15 @@ export default function setRoutes(app) {
 
   //bookings
   router.route('/booking').post(bookingCtrl.insert);
+  router.route('/getbookings').get(bookingCtrl.getAll);
+  router.route('/getbookings/:id').get(bookingCtrl.getbyid);
+  router.route('/todaybooking').get(bookingCtrl.todayBookings);
+  router.route('/booking/:id').put(bookingCtrl.update);
+
+  //relations
+  router.route('/relation').post(relationCtrl.insert);
+  router.route('/getrelations').get(relationCtrl.getAll);
+  router.route('/relation/:id').get(relationCtrl.get);
 
 
 
@@ -100,7 +118,7 @@ export default function setRoutes(app) {
           res.status(200).json({ 
             success : true,
             msg: 'File Uploaded',
-            file: `uploads/${req.file.filename}`
+            file: `assets/public/uploads/${req.file.filename}`
           });
         }
       }
@@ -111,7 +129,7 @@ export default function setRoutes(app) {
 
 
 const storage = multer.diskStorage({
-  destination: './public/uploads/',
+  destination: './src/assets/public/uploads/',
   filename: function(req, file, cb){
     cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
@@ -165,7 +183,7 @@ router.post('/uploadHostAvatar', (req, res) => {
         res.status(200).json({ 
           success : true,
           msg: 'File Uploaded',
-          file: `uploads/${req.file.filename}`
+          file: `assets/public/uploads/${req.file.filename}`
         });
       }
     }
@@ -205,7 +223,7 @@ router.post('/uploadUserAvatar', (req, res) => {
         res.status(200).json({ 
           success : true,
           msg: 'File Uploaded',
-          file: `uploads/${req.file.filename}`
+          file: `assets/public/uploads/${req.file.filename}`
         });
       }
     }

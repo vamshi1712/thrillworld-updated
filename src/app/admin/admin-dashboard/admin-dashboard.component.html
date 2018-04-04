@@ -7,16 +7,16 @@
   
 
   <div class="w3-col m4">
-        <div class="w3-card w3-round w3-white w3-center w3-padding w3-margin" onclick="document.getElementById('id010').style.display='display'"  >
+        <div class="w3-card w3-round w3-white w3-center w3-padding w3-margin w3-row" *ngFor="let event of events" >
                 <div class="w3-container">
                   <p>Upcoming Events:</p>
                   <img src="assets/gallery/pexels-photo-672358.jpeg" alt="Forest" style="width:100%;">
-                  <p><strong>Holiday</strong></p>
-                  <p>Friday 15:00</p>
+                  <p><strong>{{event.title}}</strong></p>
+                  <p>{{event.type}}</p>
                   
                   <p><button class="w3-button w3-block  btn btn-success"
                    >Info</button></p>
-                  <p><button class="w3-button w3-block  btn btn-success">Permit</button></p>
+                  <p><button class="w3-button w3-block  btn btn-success" (click)="permitEvent(event._id)">Permit</button></p>
                 </div>
               </div>
 </div>

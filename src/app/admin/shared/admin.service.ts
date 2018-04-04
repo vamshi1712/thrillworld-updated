@@ -81,6 +81,31 @@ export class AdminService {
         .map((response:Response)=>response.json());
     }
 
+    permit(id){
+        const body = {"isPermittedByAdmin":true};
+        const headers = new Headers({'content-type':'application/json'});
+        return this.http.put('/api/permitevent/'+id ,body,{headers:headers})
+        .map((response:Response)=>response.json());
+    }
+
+    getnonpermittedEvents(){
+        return this.http.get('/api/getnonpermittedEvents')
+        .map((response:Response)=>response.json());
+    }
+
+    getbyLocation(location){
+        return this.http.get('/api/getbyLocation/'+location)
+        .map((response:Response)=>response.json());
+    }
+    getbyTitle(title){
+        return this.http.get('/api/getbyTitle/'+title)
+        .map((response:Response)=>response.json());
+    }
+    getbyType(type){
+        return this.http.get('/api/getbyType/'+type)
+        .map((response:Response)=>response.json());
+    }
+
     logout(){
         localStorage.clear();
     }

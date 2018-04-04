@@ -5,10 +5,7 @@ export class AdminEvents {
         public type: string,
         public description?: string,
         public images ?: string,
-        public pkgname?: string,
-        public pkgincludes?: string,
-        public pkgpriceperadult?: string,
-        public pkgpriceperchild?: string,
+       public packages ?: string,
         public fromdate?: Date,
         public todate?: Date,
         public numofdays?: number,
@@ -17,7 +14,8 @@ export class AdminEvents {
         public address?: string,
         public pincode?: number,
         public isHost?: boolean,
-        public hostid?: string
+        public hostid?: string,
+        public isPermittedByAdmin ?: boolean
     ) { }
 }
 
