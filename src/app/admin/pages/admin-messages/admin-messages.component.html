@@ -1,25 +1,142 @@
-
-<body>
-  <div class="timeline">
-    <div class="container right">
-      <div class="content">
-        <h2>Today</h2>
-        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>        
-        </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h2>Yesterday</h2>
-        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-      </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h2>Last Week</h2>
-        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-      </div>
-    </div>
-    
+<div class="w3-container">
+    <div class="head">
+      <h3>Messages</h3>
+    </div><hr>
+  
+  
+  <div class="container">
+      <div class="w3-panel w3-border w3-border-black  w3-padding">
+          <div class="head row">
+              <div class="col-md-5">
+                  <h3>Guest Name</h3>
+              </div>
+              <div class=" col-md-5 num">
+                <p>2 days ago</p>
+              </div>
+          </div><br>
+          <div class="main">
+              <h5>reservation cancelled</h5>
+          </div>
+          <div class="row">
+              <div class="col-md-5">
+                  <button class="btn default" (click)="visibleSidebar1 = true">View Details</button>
+              </div>
+              
+              
+          </div>
+  
+         
+  </div>
   </div>
   
-</body>
+  
+  
+  <p-sidebar [(visible)]="visibleSidebar1"  position="right"  [baseZIndex]="10000" styleClass="ui-sidebar-md">
+      <p-accordion>
+          <p-accordionTab header="Last Modified" [selected]="true">
+              
+                  <div class="main row w3-padding">
+                          <div class="col-md-4 w3-container">
+                            <span class="w3-text-blue-gray w3-padding">Arraivals</span>  Mar 15
+                          </div>
+                          <div class="col-md-4 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Nights</span>  2
+                          </div>
+                        </div>
+                        <div class="main row w3-padding">
+                          <div class="col-md-4 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Departure</span>  Mar 17
+                          </div>
+                          <div class="col-md-4 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Guests</span>  5
+                          </div>
+                        </div>
+                        <div class="main row w3-padding">
+                          <div class="col-md-4 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Reference</span>  465676
+                          </div>
+                          <div class="col-md-4 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Rooms</span>  2
+                          </div>
+                          
+                        </div>
+                       
+  
+          </p-accordionTab>
+          <p-accordionTab header="Guest Details">
+                  <h3>Guest Name</h3>
+                  <div class="main row w3-padding">
+                          <div class=" w3-container">
+                            <span class="w3-padding"><i class="fa fa-flag"></i></span> India
+                          </div>
+                          
+                        </div>
+                  <div class="main row w3-padding">
+                          <div class=" w3-container">
+                                  <span class="w3-padding"><i class="fa fa-phone"></i></span> 321654794
+                                </div>
+                        </div>
+                          
+                          
+                        
+                        <div class="main row w3-padding">
+                          <div class="col-md w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Preferred Language</span>  English
+                          </div>
+                          
+                        </div>
+                        <div class="main row w3-padding">
+                          <div class="col-md-5 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Address</span>  Banglore
+                          </div>
+                          
+                          
+                        </div>
+          </p-accordionTab>
+          <p-accordionTab header="Room Details">
+              <h4>Tent</h4>
+  
+              <div class="main row w3-padding">
+                      <div class="col-md-5 w3-container">
+                          <span class="w3-text-blue-gray w3-padding">Guest Name</span>  Jasmine
+                      </div>
+                      
+                    </div>
+              <div class="main row w3-padding">
+                      <div class="col-md-5 w3-container">
+                          <span class="w3-text-blue-gray w3-padding">Price Per Night</span>  35620
+                      </div>
+                      
+                    </div>
+              <div class="main row w3-padding">
+                      <div class="col-md-5 w3-container">
+                          <span class="w3-text-blue-gray w3-padding">Meal Plan </span>  Not included
+                      </div>
+                      
+                    </div>
+   
+                        <div class="main row w3-padding">
+                          <div class="col-md-5 w3-container">
+                              <span class="w3-text-blue-gray w3-padding">Extras</span>  350
+                          </div>
+                          
+                        </div>
+                        
+                        
+  
+  
+  
+          </p-accordionTab>
+      </p-accordion>
+     
+  </p-sidebar>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>

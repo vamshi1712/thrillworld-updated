@@ -56,7 +56,8 @@ export default function setRoutes(app) {
   router.route('/addEvent').post(eventCtrl.insert);
   router.route('/getEvents').get(eventCtrl.getAll);
   router.route('/getEvents/:id').get(eventCtrl.getAll);
-  router.route('/event/:id').get(eventCtrl.getEventsofHost);
+  router.route('/event/:id').get(eventCtrl.get);
+  router.route('/eventsofhost/:id').get(eventCtrl.getEventsofHost);
   router.route('/getPermittedEvents').get(eventCtrl.getPermitted);
   router.route('/permitevent/:id').put(eventCtrl.permitevent);
   router.route('/getnonpermittedEvents').get(eventCtrl.getNonPermitted);
@@ -71,7 +72,7 @@ export default function setRoutes(app) {
   //bookings
   router.route('/booking').post(bookingCtrl.insert);
   router.route('/getbookings').get(bookingCtrl.getAll);
-  router.route('/getbookings/:id').get(bookingCtrl.getbyid);
+  router.route('/getbookings/:id').get(relationCtrl.getbyid);
   router.route('/todaybooking').get(bookingCtrl.todayBookings);
   router.route('/booking/:id').put(bookingCtrl.update);
 

@@ -8,7 +8,22 @@ import { AdminService } from '../../shared/admin.service';
 })
 export class AdminEventsListComponent implements OnInit {
   
-  events : Event[]=[]
+  events : Event[]=[];
+  visibleSidebar1;
+  visibleSidebar2;
+  visibleSidebar3;
+  visibleSidebar4;
+
+
+  event : Event;
+
+  openNav() {
+    document.getElementById("myNav").style.width = "75%";
+}
+
+ closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
 
   constructor(private adminservice : AdminService) { }
 

@@ -3,6 +3,16 @@
 <div class="container ">
 
     <mat-tab-group>
+        <mat-tab label="WishList" class="tab-group">
+            
+            <div class="container">
+              
+              <div class="wishlist">
+                <wishlist></wishlist>
+              </div>
+            </div>
+    
+          </mat-tab>
       <mat-tab label="Profile" class="tab-group" >
           <div class="w3-half">
               <div class="w3-white w3-margin w3-border">
@@ -27,6 +37,9 @@
                       <input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />
                       <button type="button" (click)="onUpload()">Upload</button>
                     </div>
+                    <div class="image" *ngIf="image">
+                      <img [src]="image.file" alt="">
+                    </div>
                   </div>
                 </div>
               <div class="w3-white w3-margin w3-border">
@@ -45,16 +58,7 @@
             
           </mat-tab>
 
-      <mat-tab label="WishList" class="tab-group">
-        
-        <div class="container">
-          
-          <div class="wishlist">
-            <wishlist></wishlist>
-          </div>
-        </div>
-
-      </mat-tab>
+      
 
 
       <mat-tab label="Bookings" class="tab-group">

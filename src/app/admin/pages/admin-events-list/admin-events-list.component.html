@@ -8,7 +8,7 @@
 
         <div class="w3-container w3-padding-30 row w3-wide" id="rsvp">
                 
-            <div class="card"  *ngFor="let event of events" onclick="document.getElementById('id01').style.display='block'">
+            <div class="card"  *ngFor="let event of events" (click)="visibleSidebar1 = true">
                 <img src="assets/gallery/Lonavala/Thrillworld-Lonavala.jpg" alt="Avatar" style="width:100%">
                 <h1>{{event.title}}</h1>
                 <p class="title">CEO & Founder, Example</p>
@@ -21,198 +21,335 @@
 
 
               
+              <p-sidebar [(visible)]="visibleSidebar1" position="right" [baseZIndex]="10000" [autoZIndex]="true" class="side"  styleClass="ui-sidebar-md">
+                    <div class="details w3-container w3-margin w3-padding">
 
-              
-
-        <div id="id01" class="w3-modal">
-
-                <div class="close">
-                        <span class="w3 w3-right w3-margin-right" 
-                        onclick="document.getElementById('id01').style.display='none'" >X</span>
-                </div>
-                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;width:800px">
-                        
-
-                    <div class="details">
-                                <ul>
-                                   
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">Title </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Fast and Furious</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">Type </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Race</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">description </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Do or Die Event</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">phone </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">123456789</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">packageName </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Basic</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">PackageIncludes </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">WIn 1 lakh</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">Price Per Adult </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">10,000</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">Price Per Child </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">6000</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">text area </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda illum esse, perferendis quasi, harum vel nisi voluptate quis laboriosam, inventore ullam deleniti dolor magnam iste quas? Libero accusamus sint odit.</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">From </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Mar 25</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">to </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Mar 30</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">number of days </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">1</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">location </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">Delhi</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">address </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">ORR </label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <div class="row">
-                                            <div class="que col-md-6">
-                                                <label for="">pincode </label>
-                                            </div>
-                                            <div class="ans col-md-6">
-                                                <label for="">125463</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                </ul>
+                        <div class="up">
+                            <div class="w3-center">
+                                <img src="assets/gallery/Lonavala/Thrillworld-Lonavala.jpg" alt="" class="img">
                             </div>
-                            <div class="w3-row">
-                                    <div class="w3-half">
-                                      <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-green">Edit</button>
+                            <div class="w3-container w3-padding w3-margin-top">
+                                <div class="details">
+                                    <h4>Event Name</h4>
+
+                                    <h6>Event Address</h6>
+                                </div>
+                            
+                            </div>
+                            <hr>
+                            <div class="next">
+                                <div class="listof w3-conatiner w3-padding">
+                                    <h3>Event Details</h3>
+                                </div>
+                                <div class="lists w3-container">
+                                    <div class="photos">
+                                        <a (click)="visibleSidebar2 = true">
+                                            <h6>Photos</h6>
+                                        </a>
                                     </div>
-                                    <div class="w3-half">
-                                      <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-red">Close</button>
+                                    <div class="photos">
+                                            <a (click)="visibleSidebar3 = true">
+                                                    <h6>Description</h6>
+                                                </a>
+                                    </div>
+                                    <div class="photos">
+                                            <a (click)="visibleSidebar4 = true">
+                                                    <h6>Facilities</h6>
+                                                </a>
+                                    </div>
+                                </div>
+
+                                
+
+                            </div>
+                        </div>
+
+
+                            <!-- <ul>
+                               
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">Title </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Fast and Furious</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">Type </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Race</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">description </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Do or Die Event</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">phone </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">123456789</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">packageName </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Basic</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">PackageIncludes </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">WIn 1 lakh</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">Price Per Adult </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">10,000</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">Price Per Child </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">6000</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">text area </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda illum esse, perferendis quasi, harum vel nisi voluptate quis laboriosam, inventore ullam deleniti dolor magnam iste quas? Libero accusamus sint odit.</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">From </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Mar 25</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">to </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Mar 30</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">number of days </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">1</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">location </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">Delhi</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">address </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">ORR </label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="row">
+                                        <div class="que col-md-6">
+                                            <label for="">pincode </label>
+                                        </div>
+                                        <div class="ans col-md-6">
+                                            <label for="">125463</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                            </ul> -->
+                        </div>
+                        <!-- <div class="w3-row">
+                                <div class="w3-half">
+                                  <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-green">Edit</button>
+                                </div>
+                                <div class="w3-half">
+                                  <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-red">Close</button>
+                                </div>
+                              </div> -->
+
+
+                    <!-- <button pButton type="button" (click)="visibleSidebar2 = false" label="Save" class="ui-button-success"></button>
+                    <button pButton type="button" (click)="visibleSidebar2 = false" label="Cancel" class="ui-button-secondary"></button>
+                 -->
+            
+                </p-sidebar>
+        
+                <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000" styleClass="ui-sidebar-md">
+                        <h1 style="font-weight:normal">photos</h1>
+
+
+                        <div class="w3-row-padding w3-padding-16 w3-text-white w3-large">
+                                
+                                <div class="w3-full">
+                                  <div class="w3-row-padding" style="margin:0 -16px">
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/download.jpg" alt="New York" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">New York</span>
+                                      </div>
+                                    </div>
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/download (2).jpg" alt="San Francisco" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">San Francisco</span>
+                                      </div>
                                     </div>
                                   </div>
-                </div>
-              </div>
+                                  <div class="w3-row-padding" style="margin:0 -16px">
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/gallery/emotions-2700972_640.jpg" alt="Pisa" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">Pisa</span>
+                                      </div>
+                                    </div>
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/gallery/pexels-photo-672358.jpeg" alt="Paris" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">Paris</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="w3-row-padding" style="margin:0 -16px">
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/download.jpg" alt="New York" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">New York</span>
+                                      </div>
+                                    </div>
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/download (2).jpg" alt="San Francisco" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">San Francisco</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="w3-row-padding" style="margin:0 -16px">
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/gallery/emotions-2700972_640.jpg" alt="Pisa" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">Pisa</span>
+                                      </div>
+                                    </div>
+                                    <div class="w3-half w3-margin-bottom">
+                                      <div class="w3-display-container">
+                                        <img src="assets/gallery/pexels-photo-672358.jpeg" alt="Paris" style="width:100%">
+                                        <span class="w3-display-bottomleft w3-padding">Paris</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+
+
+
+
+
+
+
+                    </p-sidebar>
+                    
+                    <p-sidebar [(visible)]="visibleSidebar3" position="right" [baseZIndex]="10000" styleClass="ui-sidebar-md"> 
+                        <h1 style="font-weight:normal">Description</h1>
+                        
+                        <div class="w3-conatiner">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam iste consequuntur cumque ipsa sapiente debitis, accusantium hic, distinctio quia dolor unde. Repellendus accusantium aspernatur facilis sapiente quisquam exercitationem repellat maiores!
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </p-sidebar>
+                    
+                    <p-sidebar [(visible)]="visibleSidebar4" position="right" [baseZIndex]="10000" styleClass="ui-sidebar-md">
+                        <h1 style="font-weight:normal">Packages</h1>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure officiis voluptatem, quibusdam suscipit adipisci in! Ad et ipsa illum doloribus possimus eligendi tempore totam quas itaque consequuntur, rerum consequatur maiores.
+                    </p-sidebar>
+              
+
 
 
 

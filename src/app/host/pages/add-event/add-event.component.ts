@@ -20,17 +20,18 @@ import { FileUpload, FileUploadModule } from 'primeng/primeng';
     styleUrls: ['./add-event.component.scss']
 })
 export class AddEventComponent implements OnInit {
+    reviews: any;
     packages: any=[];
-   
+    rangeDates : any;
     myForm: FormGroup;
     pkgForm: FormGroup;
-    
+    city : any;
     msgs: Message[];
     values: string[];
     pkgs : Package[];
     value: Date;
     textarea: string;
-    
+    dateup : any;
 
     constructor(private router: Router,private http : Http,
         private hostservice: HostService) { }
@@ -42,8 +43,9 @@ export class AddEventComponent implements OnInit {
             type: new FormControl(null, Validators.required),
             description: new FormControl(null, Validators.required),
             location: new FormControl(null, Validators.required),
-            fromdate: new FormControl(null, Validators.required),
-            todate: new FormControl(null, Validators.required),
+            daterange: new FormControl(null, Validators.required),
+            mempertent : new FormControl(null, Validators.required),
+            pricepernight : new FormControl(null, Validators.required),
             numofdays: new FormControl(null, Validators.required),
             textarea: new FormControl(null, Validators.required),
             pincode: new FormControl(null, Validators.required),
@@ -101,6 +103,11 @@ export class AddEventComponent implements OnInit {
 
     onSubmit(myForm) {
 
+        let daterange = this.myForm.value.daterange;
+
+        let datefrom = daterange[0].getDate()+ '/' + (daterange[0].getMonth() + 1) + '/' +  daterange[0].getFullYear();
+        let dateto = daterange[1].getDate()+ '/' + (daterange[1].getMonth() + 1) + '/' +  daterange[1].getFullYear();
+
         const id = localStorage.getItem('hostId');
 
         const event = new Events(this.myForm.value.title,
@@ -108,14 +115,17 @@ export class AddEventComponent implements OnInit {
             this.myForm.value.type,
             this.myForm.value.description,
             this.packages,
+            this.mainimage,
             this.images,
-            this.myForm.value.fromdate,
-            this.myForm.value.todate,
+            datefrom,
+            dateto,
+            this.myForm.value.mempertent,
+            this.myForm.value.pricepernight,
             this.myForm.value.numofdays,
-            this.myForm.value.textarea,
             this.myForm.value.location,
             this.myForm.value.address,
             this.myForm.value.pincode,
+            this.reviews,
             true,
             id,
             false
@@ -134,11 +144,22 @@ export class AddEventComponent implements OnInit {
     filesToUpload : any;
     uploadedFiles: any[] = [];
     images : any=[];
-
+    mainimage : any;
 
 
 
     onFileSelected(event){
+        console.log(event);
+       
+        this.selectedFile = event.srcElement.files[0];
+        this.oneUpload();
+        
+        
+                  
+        
+    }
+
+    onFilesSelected(event){
         console.log(event);
        
 
@@ -152,6 +173,24 @@ export class AddEventComponent implements OnInit {
         
     }
 
+    oneUpload(){
+        const formData:FormData = new FormData();
+        
+
+            formData.append('image', this.selectedFile, this.selectedFile.name );
+            this.uploadedFiles = this.selectedFile;
+            
+            this.http.post('http://localhost:3000/api/upload',formData)
+                    .subscribe(res=>{
+                        let resul : any = res;
+                        let result:any=JSON.parse(resul._body);
+                        console.log(res);
+                        this.mainimage = result.file;
+                        console.log(this.mainimage);
+                    });
+
+        
+    }
     onUpload(){
         const formData:FormData = new FormData();
         

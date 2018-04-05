@@ -1,223 +1,230 @@
-<div class="container">
-  <div class="header">
-    <h4>Activities</h4>
-  </div>
-  <hr>
-<div class="row">
+<div class="containe">
   
 
-  <div class="w3-col m4">
-        <div class="w3-card w3-round w3-white w3-center w3-padding w3-margin w3-row" *ngFor="let event of events" >
-                <div class="w3-container">
-                  <p>Upcoming Events:</p>
-                  <img src="assets/gallery/pexels-photo-672358.jpeg" alt="Forest" style="width:100%;">
-                  <p><strong>{{event.title}}</strong></p>
-                  <p>{{event.type}}</p>
-                  
-                  <p><button class="w3-button w3-block  btn btn-success"
-                   >Info</button></p>
-                  <p><button class="w3-button w3-block  btn btn-success" (click)="permitEvent(event._id)">Permit</button></p>
+
+<div class="w3-container">
+        <div class="heading">
+          <div class="w3-left w3-padding-left">
+            <h3>Activities</h3>
+          </div>
+          <div class="w3-right w3-padding filter" >
+              <!-- <button class="openBtn" (click)="closeSearch()"><i class="fa fa-search"></i></button> -->
+            <span (click)="visibleSidebar1 = true"><i class="fa fa-filter"></i> Filters</span>
+          </div>
+        </div>
+       
+        
+              
+               
+                 
+              </div>
+
+
+        <div class="w3-container">
+      
+        
+      <hr>
+      
+
+                <div class="row">
+                        
+                      
+                        <div class="w3-col m4" *ngFor="let event of events">
+                              <div class="w3-card w3-round w3-white w3-center w3-padding w3-margin w3-row"  >
+                                      <div class="w3-container">
+                                        <p>Upcoming Events:</p>
+                                        <div *ngFor="let i of event.images">
+                                          <img src="{{i}}" alt="Forest" style="width:100%;">
+                                        </div>
+                                        <p><strong>{{event.title}}</strong></p>
+                                        <p>{{event.type}}</p>
+                                        
+                                        <p><button class="w3-button w3-block  btn btn-success"
+                                         >Info</button></p>
+                                        <p><button class="w3-button w3-block  btn btn-success" (click)="permitEvent(event._id)">Permit</button></p>
+                                      </div>
+                                    </div>
+                      </div>
+                </div>
+      
+          <div class="w3-panel w3-border w3-border-violet w3-leftbar w3-padding">
+              <div class="head row">
+                  <div class="col-md-5">
+                      <h3>Daily Report</h3>
+                  </div>
+                  <div class=" col-md-5 num">
+                    <p>no od days ago</p>
+                  </div>
+              </div><br>
+      
+              <!-- <div class="gap">
+              </div> -->
+              <div class="main">
+                  <h3>Event Name </h3>
+              </div>
+              <div class="main row">
+                <div class="col-md-4 w3-container">
+                  <span class="w3-text-blue-gray">Arraivals</span> : Mar 15
+                </div>
+                <div class="col-md-4 w3-container">
+                    <span class="w3-text-blue-gray">Departures</span> : 0
                 </div>
               </div>
-</div>
-
- 
-   
-</div>
-
-
-  
-  
-
-
-<div id="id010" class="w3-modal">
-    
-                    <div class="close">
-                            <span class="w3 w3-right w3-margin-right" 
-                            onclick="document.getElementById('id01').style.display='none'" >X</span>
-                    </div>
-                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;width:800px">
-                            
-    
-                        <div class="details">
-                                    <ul>
-                                       
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">Title </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Fast and Furious</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">Type </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Race</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">description </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Do or Die Event</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">phone </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">123456789</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">packageName </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Basic</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">PackageIncludes </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">WIn 1 lakh</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">Price Per Adult </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">10,000</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">Price Per Child </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">6000</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">text area </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda illum esse, perferendis quasi, harum vel nisi voluptate quis laboriosam, inventore ullam deleniti dolor magnam iste quas? Libero accusamus sint odit.</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">From </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Mar 25</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">to </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Mar 30</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">number of days </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">1</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">location </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">Delhi</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">address </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">ORR </label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <div class="row">
-                                                <div class="que col-md-6">
-                                                    <label for="">pincode </label>
-                                                </div>
-                                                <div class="ans col-md-6">
-                                                    <label for="">125463</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                    </ul>
-                                </div>
-                                <div class="w3-row">
-                                        <div class="w3-half">
-                                          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-green">Edit</button>
-                                        </div>
-                                        <div class="w3-half">
-                                          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-red">Close</button>
-                                        </div>
-                                      </div>
-                    </div>
+              <div class="main row">
+                <div class="col-md-4 w3-container">
+                    <span class="w3-text-blue-gray">Sold Out Room types</span> : 0
+                </div>
+                
+              </div>
+             
+            </div>
+      
+      
+      
+      
+      
+      
+      
+          <div class="w3-panel w3-border w3-border-green w3-leftbar w3-padding">
+              <div class="head row">
+                  <div class="col-md-5">
+                      <h3>New Booking</h3>
                   </div>
-  
-</div>
+                  <div class=" col-md-5 num">
+                    <p>2 days ago</p>
+                  </div>
+              </div><br>
+      
+              <!-- <div class="gap">
+              </div> -->
+              <div class="main">
+                  <h3>Event Name </h3>
+              </div>
+              <div class="main row">
+                <div class="col-md-4 w3-container">
+                  <span class="w3-text-blue-gray">Arraivals</span> : Thur Mar-15
+                </div>
+                <div class="col-md-4 w3-container">
+                    <span class="w3-text-blue-gray">Nights</span> : 0
+                </div>
+              </div>
+              <div class="main row">
+                <div class="col-md-4 w3-container">
+                    <span class="w3-text-blue-gray">Booking number</span> : 21345
+                </div>
+                <div class="col-md-4 w3-container">
+                    <span class="w3-text-blue-gray">Price</span> : 4500
+                </div>
+                
+              </div>
+             
+            </div>
+      
+      
+      
+          <div class="w3-panel w3-border w3-border-yellow w3-leftbar w3-padding">
+              <div class="head row">
+                  <div class="col-md-5">
+                      <h3>Modification</h3>
+                  </div>
+                  <div class=" col-md-5 num">
+                    <p>1 Month ago</p>
+                  </div>
+              </div><br>
+      
+              <!-- <div class="gap">
+              </div> -->
+              <div class="main">
+                  <h3>Event Name </h3>
+              </div>
+              
+             
+            </div>
+      
+            <div class="w3-panel w3-border w3-border-violet w3-leftbar w3-padding">
+                <div class="head row">
+                    <div class="col-md-5">
+                        <h3>cancellation</h3>
+                    </div>
+                    <div class=" col-md-5 num">
+                      <p>2 days ago</p>
+                    </div>
+                </div><br>
+        
+                <!-- <div class="gap">
+                </div> -->
+                <div class="main">
+                    <h3>Event Name </h3>
+                </div>
+                <div class="main row">
+                  <div class="col-md-4 w3-container">
+                    <span class="w3-text-blue-gray">Guest Name</span> : Ram Nithin
+                  </div>
+                  <div class="col-md-4 w3-container">
+                      <span class="w3-text-blue-gray">Arrivals</span> : thur 15-mar
+                  </div>
+                </div>
+                <div class="main row">
+                  <div class="col-md-4 w3-container">
+                      <span class="w3-text-blue-gray">Booking number</span> : 21345
+                  </div>
+                  <div class="col-md-4 w3-container">
+                      <span class="w3-text-blue-gray">Price</span> : 4500
+                  </div>
+                  
+                </div>
+               
+              </div>
+          
+      
+      
+      
+      
+        </div>
+      
+        <p-sidebar [(visible)]="visibleSidebar1" position="right"  [baseZIndex]="10000">
+                <div class="top">
+            
+                </div>
+                <h1>Filter By</h1>
+                <label class="container">New Booking
+                  <input type="checkbox" checked="checked">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Sold Out Rooms
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">New Reviews
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Daily Report
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Cancellations
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Opportunities
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">LongTerm Availability
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Almost Sold Out
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                
+            </p-sidebar>
+      
+      
+      
+      
+      
+      
+      </div>

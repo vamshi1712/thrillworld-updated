@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { AdminService } from './shared/admin.service';
@@ -35,14 +35,28 @@ import { AdminAddCityComponent } from './pages/admin-add-city/admin-add-city.com
     NgbDropdownModule.forRoot(),
     ReactiveFormsModule,
     PrimengModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule
   ],
   providers:[AdminService],
   declarations: [AdminComponent, 
                 AdminLoginComponent, 
                 AdminSignupComponent, 
                 AdminSidebarComponent, 
-                AdminNavbarComponent, MerchantsListComponent,  AdminAddEventComponent, AdminBookingsComponent, AdminAvailabilityComponent, AdminAddImageComponent, AdminEventsListComponent, AdminEventsPhotosComponent, AdminInvoiceComponent, AdminMessagesComponent, AdminProfileComponent, AdminReviewsComponent, AdminSettingsComponent, AdminAddCityComponent
+                AdminNavbarComponent,
+                 MerchantsListComponent,
+                 AdminAddEventComponent,
+                  AdminBookingsComponent, 
+                  AdminAvailabilityComponent,
+                   AdminAddImageComponent,
+                    AdminEventsListComponent, 
+                    AdminEventsPhotosComponent,
+                     AdminInvoiceComponent,
+                      AdminMessagesComponent,
+                       AdminProfileComponent, 
+                       AdminReviewsComponent,
+                        AdminSettingsComponent,
+                         AdminAddCityComponent
               ]
 })
 export class AdminModule { }

@@ -19,6 +19,8 @@ import {DialogModule} from 'primeng/dialog';
 import {CheckboxModule} from 'primeng/checkbox';
 import {SidebarModule} from 'primeng/sidebar';
 import {AccordionModule} from 'primeng/accordion';
+import {RatingModule} from 'primeng/rating';
+
 
 
 
@@ -41,7 +43,8 @@ import {AccordionModule} from 'primeng/accordion';
     DialogModule,
     CheckboxModule,
     SidebarModule,
-    AccordionModule
+    AccordionModule,
+    RatingModule
 
   ],
   exports:[
@@ -61,7 +64,8 @@ import {AccordionModule} from 'primeng/accordion';
     DialogModule,
     CheckboxModule,
     SidebarModule,
-    AccordionModule
+    AccordionModule,
+    RatingModule
   ],
   declarations: []
 })

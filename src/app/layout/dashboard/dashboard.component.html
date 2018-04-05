@@ -8,6 +8,7 @@
             <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
                 <a  class="w3-bar-item w3-button w3-large w3-padding-16"
                 onclick="document.getElementById('mySidebar').style.display='none'" >Close ×</a>
+                <a href="#about"  class="w3-bar-item w3-button">Home</a>
                 <a href="#about"  class="w3-bar-item w3-button">Account</a>
                 <a href="#about"  class="w3-bar-item w3-button">Logout</a>
                 
@@ -32,9 +33,17 @@
                     </button>
                     <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
                       <a href="#" class="w3-bar-item w3-button">Profile</a>
+                      <a href="#" class="w3-bar-item w3-button">Cart</a>
                       <a href="#" class="w3-bar-item w3-button">Logout</a>
                     </div>
               </div>
+                <div class="w3-right w3-hide-small w3-transparent">
+                    <button class="w3-button w3-red w3-padding w3-margin">
+                            <i class="fa fa-user"></i> Home
+                    </button>
+                    
+              </div>
+              
                 <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
                 onclick="document.getElementById('mySidebar').style.display='block'">
                   <i class="fa fa-bars"></i>
@@ -57,10 +66,6 @@
             
           </div>
 
-         
- 
-    
-</div>
 
 <div class="w3-container w3-row w3-center w3-hide-medium w3-hide-small w3-White whytw">
     <div class="w3-quarter">
@@ -85,16 +90,27 @@
   </div>
 
 
+
+
+         
+ 
+    
+</div>
+
+
+
+
+
+
 <div class="layout">
-<div class="places">
-        <app-places></app-places>     
+        <div class="places">
+                <app-places></app-places>     
+        </div>
+        
+        
+        <div class="events">
+            <app-events></app-events>  
+        </div>
 </div>
-<div class="events">
-    <app-events></app-events>  
-</div>
-
-</div>
-
-
 
 

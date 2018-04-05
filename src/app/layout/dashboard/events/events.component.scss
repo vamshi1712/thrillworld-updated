@@ -36,9 +36,13 @@ body {
 
 .header {
     text-align: center;
-    padding: 32px;
+    // padding: 32px;
 }
 
+.col-md-3{
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .w3-text-white{
     
@@ -51,6 +55,7 @@ body {
 }
 
 .activities{
+
     img{
         height: 300px;
     }
@@ -105,3 +110,44 @@ body {
     }
 }
 
+
+
+
+// .layout{
+//     margin : .5vw;
+//     font-size: 0;
+//     display: -ms-flexbox;
+//     -ms-flexbox-wrap : wrap;
+//     -ms-flexbox-direction : column;
+//     -webkit-flex-flow : row wrap;
+//     flex-flow: row wrap;
+//     display: -webkit-box;
+//     display: flex;
+
+// }
+
+// .layout {
+//     .w3-card{
+//         -webkit-box-flex: auto;
+//         -ms-flex: auto;
+//         width: 200px;
+//         margin: .5vw;
+//     }
+
+//     img{
+//         width: 100%;
+//         height: auto;
+//     }
+// }
+
+// @media screen and (max-width: 400px){
+//     .layout{
+//         .w3-card{
+//             margin: 0;
+//         }
+//     }
+
+//     .layout{
+//         padding: 0;
+//     }
+// }

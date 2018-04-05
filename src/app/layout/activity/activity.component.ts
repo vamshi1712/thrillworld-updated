@@ -4,6 +4,8 @@ import { AuthService } from '../../shared/services/user.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Booking } from '../../shared/models/booking.model';
 import { Relation } from '../../shared/models/relation';
+import { Review } from '../../host/shared/event.model';
+
 
 @Component({
   selector: 'app-activity',
@@ -11,13 +13,15 @@ import { Relation } from '../../shared/models/relation';
   styleUrls: ['./activity.component.scss']
 })
 export class ActivityComponent implements OnInit {
+    packages: any[];
     event: any;
   public sliders: Array<any> = [];
   
   dates: Date[];
-  
+
       rangeDates: Date[];
       date : Date ;
+
       minDate: Date;
   
       maxDate: Date;
@@ -29,25 +33,11 @@ export class ActivityComponent implements OnInit {
   
 
   constructor ( private _route : ActivatedRoute , private authservice : AuthService) {
-    this.sliders.push(
-      {
-          imagePath: 'assets/gallery/Kamshet/Paragliding at Kamshet/Paragliding in kamshet profile.jpg',
-          label: 'ParaGliding',
-          text:
-              'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-      },
-      {
-          imagePath: 'assets/gallery/Kamshet/Paragliding at Kamshet/Paragliding-in-Kamshet--Thrillworld.jpg',
-          label: 'Paragliding',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      },
-      {
-          imagePath: 'assets/images/slider3.jpg',
-          label: 'Third slide label',
-          text:
-              'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-      }
-  );
+
+    
+
+
+    
 
  
 
@@ -57,14 +47,41 @@ export class ActivityComponent implements OnInit {
        this.authservice.getEvent(id)
             .subscribe(data=>{
                 console.log(data);
+                data.images=data.images.split(",");
                 this.event=data;
+                this.packages = data.packages;
+                for( let i=0 ; i<this.event.images.length; i++){
+                    
+                            this.sliders.push(
+                                {
+                                    imagePath: this.event.images[i],
+                                    label: this.event.title
+                                }
+                               
+                            );
+                    
+                        }
+                
             });
+
+
+            
    }
 
   ngOnInit() {
     
     const id = this._route.snapshot.params.id;
     this.getEvent(id);
+
+    this.reviewForm = new FormGroup({
+        comment : new FormControl(null, Validators.required),
+        cleanliness : new FormControl(null, Validators.required),
+        comfort : new FormControl(null, Validators.required),
+        location : new FormControl(null, Validators.required),
+        facilities : new FormControl(null, Validators.required),
+        staff : new FormControl(null, Validators.required),
+        valueformoney : new FormControl(null, Validators.required)
+    });
 
     this.es = {
         firstDayOfWeek: 1,
@@ -112,6 +129,7 @@ export class ActivityComponent implements OnInit {
   }
 
   myForm : FormGroup;
+  reviewForm : FormGroup;
 
   
   
@@ -121,8 +139,10 @@ export class ActivityComponent implements OnInit {
     const id = this._route.snapshot.params.id;
     const eventid = id;
     
+    let date = this.myForm.value.date;
+    let dateupdated= date.getDate()+ '/' + (date.getMonth() + 1) + '/' +  date.getFullYear();
 
-    const booking = new Booking (this.myForm.value.date,
+    const booking = new Booking (dateupdated,
       this.myForm.value.numofadults,  
       this.myForm.value.numofchilds,
       userid,
@@ -161,6 +181,70 @@ export class ActivityComponent implements OnInit {
         });
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  open(){
+    document.getElementById('id01').style.display='block';
+  }
+
+  close(){
+    document.getElementById('id01').style.display='none';
+  }
+
+  submitreview(reviewForm){
+
+    document.getElementById('id01').style.display='none';
+
+    const eventid = this._route.snapshot.params.id;
+    const userid = localStorage.getItem('userId');
+
+    const review = new Review (this.reviewForm.value.comment,
+      this.reviewForm.value.cleanliness,
+      this.reviewForm.value.comfort,
+      this.reviewForm.value.location,
+      this.reviewForm.value.facilities,
+      this.reviewForm.value.staff,
+      this.reviewForm.value.valueformoney,
+      userid,
+      eventid
+     ); 
+
+     console.log(review);
+     this.reviewForm.reset();
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

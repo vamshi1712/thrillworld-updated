@@ -7,18 +7,35 @@ import { AdminService } from '../shared/admin.service';
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
+  imgs: any[];
 
   constructor(private adminservice : AdminService) { }
 
   events : any;
+
+  visibleSidebar1
+  
+  
+  openSearch(){
+    document.getElementById('myOverlay').style.display = 'none'
+  }
+  closeSearch(){
+    document.getElementById('myOverlay').style.display = 'block'
+  }
+     
+  
+      
 
   ngOnInit() {
 
     
       this.adminservice.getnonpermittedEvents()
           .subscribe(data=>{
-            this.events = data;
-            console.log(data);
+            data.forEach(element => {
+              element.images=element.images.split(",");
+            });
+this.events=data;
+            
           })
     
 

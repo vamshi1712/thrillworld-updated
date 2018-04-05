@@ -16,7 +16,7 @@ export default class BookingCtrl extends BaseCtrl {
   }
 
   getbyid = (req, res) => {
-    this.model.find({ eventid : req.params.id  }, (err, docs) => {
+    this.model.find({ hostid : req.params.id  }, (err, docs) => {
       if (err) { return console.error(err); }
       res.status(200).json(docs);
     });

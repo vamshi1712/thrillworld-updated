@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-reviews.component.scss']
 })
 export class AdminReviewsComponent implements OnInit {
-
+  visibleSidebar1;
   constructor() { }
 
   ngOnInit() {

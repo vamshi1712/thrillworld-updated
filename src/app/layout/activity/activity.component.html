@@ -11,15 +11,14 @@
                     <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
                     <div class="carousel-caption">
                         <h3>{{slider.label}}</h3>
-                        <p>{{slider.text}}</p>
                     </div>
                 </ng-template>
             </ngb-carousel>
         </div>
-        <div class="w3-third w3-container w3-padding w3-light-grey w3-border">
-            <p><span class="w3-tag w3-black w3-padding">Flying</span><br>
-                <h3>Event Name</h3><br>
-                <p><span>Adderss of Event</span></p><hr>
+        <div class="w3-third w3-container w3-padding w3-light-grey w3-border" *ngIf="event">
+            <p><span class="w3-tag w3-black w3-padding">{{event.type}}</span><br>
+                <h3>{{event.title}}</h3><br>
+                <p><span>{{event.address}}</span></p><hr>
                 <span>Rating :</span> 
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -27,22 +26,18 @@
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <hr>
-                <span><i class="fa fa-map-marker"></i> Event City</span><hr>
+                <span><i class="fa fa-map-marker"></i> {{event.location}}</span><hr>
                 
-                <div class="includes">
-                        <p><i class="fa fa-check-circle"></i><span>Food</span></p>
-                        <p><i class="fa fa-check-circle"></i><span>Transport</span></p>
-                        <p><i class="fa fa-check-circle"></i><span>Medical</span></p>
-                </div><hr>
+                
 
-                <div class="prices w3-padding ">
+                <!-- <div class="prices w3-padding ">
                     <div class="w3-left">
                             <span>Adults : <p>3000</p></span> 
                     </div>
                     <div class="w3-right">
                             <span>children : <p>2000</p></span>
                         </div> 
-                </div>
+                </div> -->
                 
                 
 
@@ -67,51 +62,135 @@
 
     <div class="w3-container w3-padding w3-margin ">
         <div class="w3-twothird">
-                <div class="details">
-                        <div class="titles">
-                               <h1>Title of Activity</h1>
-                                <p>Caption relating to activity.</p>
-                            </div>
-                            <hr>
-                        <div class="includes">
-                            <h4>inlcudes : </h4>
-                            <mat-chip-list>
-                                    <mat-chip>food</mat-chip>
-                                    <mat-chip>transport</mat-chip>
-                                    <mat-chip>room</mat-chip>
-                                  </mat-chip-list>
-                            
-                        </div>
-                    </div>
-                
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dicta culpa pariatur cum. Possimus maiores perferendis doloremque? Iste tempora similique alias sunt aperiam in vero, nesciunt quisquam numquam nobis quos.</p>
-                    
-                    <hr>
-                    
                     
                     <div class="decription">
                             <h4>Description of Activity :</h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, fugiat porro illo sunt excepturi recusandae quibusdam voluptatum doloribus et! Nam, quisquam. Commodi alias a, in nesciunt veniam unde sint similique.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vel ipsam architecto possimus, facilis incidunt cupiditate culpa modi magni ullam dolore. Beatae quam impedit provident animi, officia amet a nobis.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita sed nam quia obcaecati ducimus, asperiores quibusdam earum quo dolore doloremque. Maiores est, deserunt accusamus ducimus nihil ipsam doloribus aspernatur sit?
+                            <p>
+                                {{event.description}}
                             </p>
-                        </div> 
-        </div>
-        <div class="w3-third w3-container w3-padding ">
-           
-                <div class="w3-white w3-margin w3-border">
-                        <div class="w3-container w3-padding w3-red">
-                          <h4>Subscribe</h4>
+                        </div> <hr>
+                    <div class="packages">
+                        <div class="w3-card w3-panel w3-padding w3-margin" *ngFor="let p of packages">
+                            <div class="main">
+                                    <h3>{{p.pkgname}}</h3>
+                                </div>
+                                <div class="main row w3-padding">
+                                  <div class="col-md-4 w3-container">
+                                    <span class="w3-text-blue-gray">Per Adult</span> :{{p.pkgpriceperadult}}
+                                  </div>
+                                  <div class="col-md-4 w3-container">
+                                      <span class="w3-text-blue-gray">Per Child</span> : {{p.pkgpriceperchild}}
+                                  </div>
+                                </div>
+                                <div class="main row w3-padding">
+                                  <div class=" w3-container">
+                                      <span class="w3-text-blue-gray">includes</span> : {{p.pkgincludes}}
+                                  </div>
+                                  
+                                </div>   
+                        
                         </div>
-                        <div class="w3-container w3-white">
+                    </div>
+
+                    <div class="reviews">
+                            <div class="container">
+                                    
+                                        <div>
+                                                <div class="hea">
+                                                        <label for="">Review :</label>
+                                                    </div>
+                                                        <form [formGroup]="reviewForm" >
+                                                                <fieldset class="form-group">
+                                                                        <textarea rows="3" cols="107" formControlName= "comment" placeholder="Give a Review ..." class="w3-padding" pInputTextarea></textarea>
+                                                        
+                                                                </fieldset>     
+                                                            </form>
+                                    
+                                                            
+                                    
+                                                            <div class="w3-right">
+                                                                <button class="btn btn-info" type="button" (click)="open()">
+                                                                    Make Review
+                                                                </button>
+                                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div id="id01" class="w3-modal">
+                                            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px">
+                                              <div class="w3-container w3-white w3-center">
+                                                <h1 class="w3-wide">Rate the Event</h1>
+                                    
+                                                <form [formGroup]="reviewForm" >
+                                                        <fieldset class="form-group">
+                                                                <div class="things row">
+                                                                    <label for=""><span class="w3-padding">comfort :</span></label>
+                                                                        <p-rating [cancel]="false" formControlName="comfort"></p-rating>
+                                                                </div>
+                                                                <div class="things row">
+                                                                    <label for=""><span class="w3-padding">cleanliness :</span></label>
+                                                                    <p-rating [cancel]="false" formControlName="cleanliness"></p-rating>
+                                                                </div>
+                                                                <div class="things row">
+                                                                    <label for=""><span class="w3-padding">location :</span></label>
+                                                                    <p-rating [cancel]="false" formControlName="location"></p-rating>
+                                                                </div>
+                                                                <div class="things row">
+                                                                    <label for=""><span class="w3-padding">facilities :</span></label>
+                                                                    <p-rating [cancel]="false" formControlName="facilities"></p-rating>
+                                                                </div>
+                                                                
+                                                                <div class="things row">
+                                                                    <label for=""><span class="w3-padding">staff :</span></label>
+                                                                    <p-rating [cancel]="false" formControlName="staff"></p-rating>
+                                                                </div>
+                                                                <div class="things row">
+                                                                        <label for=""><span class="w3-padding">valueformoney :</span></label>
+                                                                        <p-rating [cancel]="false" formControlName="valueformoney"></p-rating>
+                                                                    </div>
+                                    
+                                                
+                                                        </fieldset>     
+                                                   
+                                    
+                                                
+                                                <div class="w3-row">
+                                                  <div class="w3-half">
+                                    
+                                                  </div>
+                                                  <div class="w3-half">
+                                                    <button (click)="submitreview(reviewForm)" type="button" class="w3-button w3-block w3-green">Done</button>
+                                                  </div>
+                                               
+                                                </div>
+                                            </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                    </div>
+
+
+        </div>
+
+
+
+
+        <div class="w3-third w3-container w3-padding ">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" >
+            <fieldset class="form-group">
+                
+                  <p-calendar formControlName="date"  dateFormat="dd/mm/yy" [inline]="true" ></p-calendar> 
+              </fieldset>
+                </form>
+                <div class="w3-white w3-border">
+                        <div class="w3-container w3-padding w3-red">
+                          <h4>Booking</h4>
+                        </div>
+                        <div class="w3-container w3-padding w3-white">
                                 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-                                        <fieldset class="form-group">
-                                            <!-- <a href="https://www.instamojo.com/@bodkedd/lbb51fe527baa4418b02329008fa87fcc/" rel="im-checkout" data-behaviour="remote" data-style="light" data-text="Checkout With Instamojo"></a>
-                                            <script src="https://js.instamojo.com/v1/button.js"></script> -->
-                                            
-                                        </fieldset>
-                                        <p-calendar formControlName="date"  dateFormat="dd/mm/yy" ></p-calendar> 
-                                            {{date | date}}
+                                        
+                                        
                                         <fieldset class="form-group">
                                             <input class="form-control" 
                                                 type="number" 

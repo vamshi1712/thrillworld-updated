@@ -42,15 +42,12 @@
                 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
 
                     <fieldset class="form-group">
-                        <input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />                        
+                        <input type="file" (change)="onFileSelected($event)" placeholder="Upload file..." name="file" />                        
                     </fieldset>
 
-
-                    <div class="images" *ngFor="let i of images">
-                        <img [src]="i" alt="" class="img">
-                    </div>
-
-
+                    <fieldset class="form-group">
+                        <input type="file" (change)="onFilesSelected($event)" placeholder="Upload file..." name="file" multiple="multiple" />                        
+                    </fieldset>
 
 
 
@@ -171,19 +168,46 @@
             <div class="form-container">
                 <div class="w3-half availability w3-padding w3-margin">
                     <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-                        <fieldset class="form-group">
-                            <label for="">tickets available from :</label>
-                            <p-calendar formControlName="fromdate"></p-calendar>
-                        </fieldset>
+                       
 
                         <fieldset class="form-group">
-                            <label for="">up to :</label>
-                            <p-calendar formControlName="todate"></p-calendar>
+                            <label for="">availability range</label>
+                            <p-calendar formControlName = "daterange" selectionMode="range" readonlyInput="true"></p-calendar>
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="">Number of days required for activity :</label>
                             <input type="number" formControlName="numofdays" name="number of days">
                         </fieldset>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </mat-tab>
+
+
+
+
+
+        <mat-tab label="Tent Details">
+            <div class="form-container">
+                <div class="w3-half availability w3-padding w3-margin">
+                    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                        <fieldset class="form-group">
+                            <input class="form-control" type="text" placeholder="Members Per Tent" id="mempertent" formControlName="mempertent">
+                            <div class="error" *ngIf="!myForm.controls['mempertent'].valid && myForm.controls['mempertent'].touched">
+                                <span class="err-msg">Enter the members per tent...</span>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input class="form-control" type="text" placeholder="Amount per night" id="pricepernight" formControlName="pricepernight">
+                            <div class="error" *ngIf="!myForm.controls['pricepernight'].valid && myForm.controls['pricepernight'].touched">
+                                <span class="err-msg">Enter the amount per night...</span>
+                            </div>
+                        </fieldset>
+
+                       
 
                     </form>
                 </div>

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMessagesComponent implements OnInit {
 
+
+
+  visibleSidebar1;
+
+  
   constructor() { }
 
   ngOnInit() {

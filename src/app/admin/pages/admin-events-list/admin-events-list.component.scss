@@ -14,10 +14,19 @@ li{
     padding-left: 10px;
 }
 
+a{
+    cursor: pointer;
+}
+
 .details{
     li{
         text-align: center;
     }
+    img{
+        width: 300px;
+        height: 200px;
+    }
+    
 }
 
 .que{

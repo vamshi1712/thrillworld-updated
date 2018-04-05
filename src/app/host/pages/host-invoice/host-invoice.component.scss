@@ -7,36 +7,3 @@
     font-family: fantasy;
 }
 
-.chat-panel{
-    .chat-dropdown{
-        margin-top: -3px;
-    }
-    .chat{
-        .left{
-            img{
-                margin-right: 15px;
-            }
-        }
-        .right{
-            img{
-                margin-left: 15px;
-            }
-        }
-        height: 350px;
-        overflow-y: scroll;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        li{
-            
-            margin-right: 15px;
-            
-            
-        }
-    }
-    .card-footer{
-        input{
-            padding : 3px;
-        }
-    }
-}

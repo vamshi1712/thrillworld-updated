@@ -21,13 +21,17 @@ export class HostAvailabilityComponent implements OnInit {
   }
   panelOpenState: boolean = false;
   value: Date;
-
+  date : any;
   text: string;
   
       disabled: boolean = true;
   
       toggleDisabled() {
           this.disabled = !this.disabled;
+      }
+
+      dateChange(){
+        
       }
 
 }

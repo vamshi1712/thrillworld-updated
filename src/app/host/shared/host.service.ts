@@ -96,7 +96,7 @@ export class HostService {
 
     getEvent(id){
         
-        return this.http.get('/api/event/'+id)
+        return this.http.get('/api/eventsofhost/'+id)
         .map((response:Response)=>response.json());
     }
 
@@ -104,6 +104,11 @@ export class HostService {
         const body = JSON.stringify(booking);
         return this.http.get('/api/todaybooking',body)
         .map((response:Response)=>response.json());
+    }
+
+    getBookingsofHost(hostid){
+        return this.http.get('/api/getbookings/'+hostid)
+        .map((response:Response)=>response.json()); 
     }
     
 

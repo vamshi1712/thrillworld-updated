@@ -23,14 +23,17 @@ export class HostBookingComponent implements OnInit {
   ngOnInit() {
 
 
-    // this.hostservice.getBookings(eventid)
-    //     .subscribe(data=>{
-    //       console.log(data);
-    //       console.log(data[0].date);
-    //       let result : any = data;
+    const hostid = localStorage.getItem('hostId');
+    this.hostservice.getBookingsofHost(hostid)
+        .subscribe(data=>{
+          console.log(data);
+         
+          let result : any = data;
 
-    //     });
+        });
   }
+
+
 
  
   
@@ -39,7 +42,9 @@ export class HostBookingComponent implements OnInit {
 
   dateChange(date){
 
-    const booking = new Booking(date)
+    let dateupdated=date.getDate()+ '/' + (date.getMonth() + 1) + '/' +  date.getFullYear();
+
+    const booking = new Booking(dateupdated);
     
     this.hostservice.todayBookings(booking)
     .subscribe(data=>{

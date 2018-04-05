@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostReviewsComponent implements OnInit {
 
+
+  visibleSidebar1;
   constructor() { }
 
   ngOnInit() {
